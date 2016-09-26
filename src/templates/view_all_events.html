@@ -1,0 +1,42 @@
+<div ui-content-for="title">
+  <span>Events on January 1</span>
+</div>
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="section">
+      <div class="panel-group"
+
+        ui-shared-state="myAccordion"
+        ui-default='2'>
+
+        <div class="panel panel-default" ng-repeat="i in [1,2,3,4,5]">
+          <div class="panel-heading" ui-set="{'myAccordion': i}">
+
+            <h4 class="panel-title">
+                Tennis Event #{{i}}
+            </h4>
+          </div>
+
+          <div ui-if="myAccordion == {{i}}">
+            <div class="panel-body">
+              <p>
+              <strong>Location:</strong> City Park <br>
+              <strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
+              <strong>Start Time:</strong> 7:00pm <br>
+              <strong>End Time:</strong> 9:00pm <br>
+            </p>
+
+              <div class="panel-footer clearfix">
+                <div class="pull-right">
+                    <a href="#" class="btn btn-default">Learn More</a>
+                    <a href="#" class="btn btn-primary">Register</a>
+                </div>
+              </div> <!-- close panel footer -->
+            </div> <!-- close panel body -->
+          </div><!-- close panel body if "state" -->
+        </div> <!-- close angular ng-repeat -->
+      </div>
+    </div>
+  </div>
+</div>
