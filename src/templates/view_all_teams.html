@@ -1,0 +1,39 @@
+<div ui-content-for="title">
+  <span>All Teams</span>
+</div>
+<!-- <select class="form-control" >
+ <option value="January1">January 1</option>
+ <option value="January2">January 2</option>
+ <option value="January3">January 3</option>
+ <option value="January4">January 4</option>
+</select> -->
+
+<div class="scrollable">
+  <div class="scrollable-content">
+   <div ng-controller="getAllTeams">
+    <!-- <div class="section"> -->
+
+
+
+<div ng-repeat="obj in Get_Data.data.teams">
+        <div class="row">
+          <div class="col-xs-3"><a href="#" class=""><img src="{{obj.image}}" class="img-responsive"></a>
+          </div>
+          <div class="col-xs-6">
+            <h3 class="title">{{obj.name}}</h3>
+            <p><i class="fa fa-location-arrow" aria-hidden="true"></i>  Zip: {{obj.zip}}</p>
+            <p><i class="fa fa-info" aria-hidden="true"></i>  Gender: {{obj.gender}}</p>
+
+            <button class="btn btn-sm btn-danger delete-author-btn">Delete</button>
+            <button type="button" class="btn btn-primary btn-sm update-author-btn">Update</button>
+
+          </div>
+
+        </div>
+        <hr>
+</div>
+
+  </div>
+    <!-- </div> -->
+  </div>
+  </div>

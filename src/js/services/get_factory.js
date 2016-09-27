@@ -34,10 +34,11 @@
 // });
 
 
-angular.module('Beersportme.services.getTest', [])
-.factory('getFactoryX', function ($http, jsonFilter) {
-  var callURL = "http://node.nyedigital.com/api/v1/authors";
-    var getData = function() {
+angular.module('Beersportme.services.getRoutesCommon', [])
+.factory('getFactory', function ($http, jsonFilter) {
+
+    var getData = function(tableName) {
+      var callURL = 'http://immense-mountain-80924.herokuapp.com/' + tableName;
       var jsonData = {};
 
         // Angular $http() and then() both return promises themselves
@@ -49,7 +50,6 @@ angular.module('Beersportme.services.getTest', [])
             return jsonData;
         });
     };
-
 
     return { getData: getData };
 });

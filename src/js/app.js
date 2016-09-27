@@ -3,7 +3,9 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
-  'Beersportme.controllers.Profile_Form'
+  'Beersportme.controllers.Profile_Form',
+  'Beersportme.services.getRoutesCommon',
+  'Beersportme.controllers.getAllTeams'
 ]);
 
 app.config(function($routeProvider) {
