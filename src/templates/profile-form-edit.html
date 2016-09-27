@@ -1,0 +1,59 @@
+<div ui-content-for="title">
+  <span class="title-text">Edit Your Profile</span>
+</div>
+
+<div class="scrollable">
+ <div class="scrollable-content section">
+  <div ng-controller="ProfileFormControllerEdit">
+    <form role="form" ng-submit="profilePutCall()">
+      <fieldset>
+        <legend>Edit Your Profile</legend>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" ng-model="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" ng-model="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Profile Picture</label>
+          <input type="text" ng-model="profile_picture" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" ng-model="email_address" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <input type="radio" name="gender" value="male" ng-model="gender" class="form-control">Male<br>
+          <input type="radio" name="gender" value="female" ng-model="gender" class="form-control">Female<br>
+          <input type="radio" name="gender" value="other" ng-model="gender" class="form-control">Prefer Not to Say
+        </div>
+        <div class="form-group">
+          <label>Tagline - Tell Us About Yourself</label>
+          <input type="text" ng-model="tagline" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Zip Code</label>
+          <input type="text" ng-model="zip_code" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Availability</label>
+          <label class="checkbox-inline"><input type="checkbox" ng-model="availabilityAM" value="1" class="form-control">AM</label>
+          <label class="checkbox-inline"><input type="checkbox" ng-model="availabilityPM" value="2" class="form-control">PM</label>
+          <label class="checkbox-inline"><input type="checkbox" ng-model="availabilityWeekdays" value="4" class="form-control">Weekdays</label>
+          <label class="checkbox-inline"><input type="checkbox" ng-model="availabilityWeekends" value="5" class="form-control">Weekends</label>
+        </div>
+      </fieldset>
+      <hr>
+      <button type="submit" class="btn btn-info btn-block">Sign Up</button>
+    </form>
+<p>
+<!-- {{ Get_Data.data.authors[0] }} -->
+</p>
+<hr>
+<!-- close controller -->
+</div>
+</div>
+</div>
