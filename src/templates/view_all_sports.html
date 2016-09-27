@@ -1,34 +1,30 @@
 <div ui-content-for="title">
-  <span>All Teams</span>
+  <span class="title-text">All Sports</span>
 </div>
 
+<!-- divs for scrollable -->
 <div class="scrollable">
   <div class="scrollable-content">
    <div ng-controller="getAllSports">
     <!-- <div class="section"> -->
 
-
-
 <div ng-repeat="obj in Get_Data.data.sports">
-        <div class="row">
-          <div class="col-xs-4"><a href="#" class=""><img src="http://www.xconomy.com/wordpress/wp-content/images/2008/05/patrick_ping_pong.jpg" class="img-responsive"></a>
-          </div>
-          <div class="col-xs-6">
-            <h3 class="title">{{obj.type}}</h3>
-            <p><i class="fa fa-users" aria-hidden="true"></i>  Team Capacity: {{obj.team_capacity}}</p>
-            <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Registered: {{obj.number_already_registered}}</p>
-            <p ng-if="obj.own_equipment_required == true"><i class="fa fa-futbol-o" aria-hidden="true"></i>Equipment Required</p>
-            <p ng-if="obj.own_equipment_required == false"><i class="fa fa-check" aria-hidden="true"></i>Equipment Not Required</p>
-
-            <button type="button" class="btn btn-success btn-sm update-author-btn">Interested</button>
-
-          </div>
-
-        </div>
-        <hr>
+  <div class="row">
+      <div class="thumbnail text-center">
+        <img src="https://hd.unsplash.com/photo-1431324155629-1a6deb1dec8d" alt="Sports Profile"/>
+        <div class="caption">
+          <p class="title">{{obj.type}}</p>
+          <p class="info-block"><i class="fa fa-users" aria-hidden="true"></i>  Team Capacity: {{obj.team_capacity}}</p>
+          <p class="info-block"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  Registered: {{obj.number_already_registered}}</p>
+          <p class="info-block" ng-if="obj.own_equipment_required == true"><i class="fa fa-futbol-o" aria-hidden="true"></i> Equipment Required</p>
+          <p class="info-block" ng-if="obj.own_equipment_required == false"><i class="fa fa-check" aria-hidden="true"></i> Equipment Not Required</p>
+        <button type="button" class="btn btn-success btn-xs update-author-btn">Interested</button>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- divs for scrollable -->
+    </div>
   </div>
-    <!-- </div> -->
-  </div>
-  </div>
+</div>
