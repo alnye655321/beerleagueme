@@ -10,6 +10,7 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.Profile_Edit_Form',
   'Beersportme.controllers.getAllTeams',
   'Beersportme.controllers.getAllSports',
+  'Beersportme.controllers.getAllEvents'
 ]);
 
 app.config(function($routeProvider) {

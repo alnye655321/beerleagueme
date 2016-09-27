@@ -10,7 +10,7 @@ angular.module('Beersportme.services.getRoutesCommon', [])
            jsonData = data;
 
             // What we return here is the data that will be accessible
-            // to us after the promise resolves
+            // to use after the promise resolves
             return jsonData;
         });
     };
