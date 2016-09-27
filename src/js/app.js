@@ -3,9 +3,13 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui',
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
-  'Beersportme.controllers.Profile_Form',
   'Beersportme.services.getRoutesCommon',
-  'Beersportme.controllers.getAllTeams'
+  'Beersportme.services.postRoutesCommon',
+  'Beersportme.services.putRoutesCommon',
+  'Beersportme.controllers.Profile_Form',
+  'Beersportme.controllers.Profile_Edit_Form',
+  'Beersportme.controllers.getAllTeams',
+  'Beersportme.controllers.getAllSports',
 ]);
 
 app.config(function($routeProvider) {
@@ -14,6 +18,7 @@ app.config(function($routeProvider) {
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
   $routeProvider.when('/profile', {templateUrl:'profile-form.html',  reloadOnSearch: false});
+  $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_teams', {templateUrl:'view_my_teams.html',  reloadOnSearch: false});
