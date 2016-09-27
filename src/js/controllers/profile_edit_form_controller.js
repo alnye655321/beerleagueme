@@ -1,7 +1,7 @@
-angular.module('Beersportme.controllers.Profile_Form', [])
+angular.module('Beersportme.controllers.Profile_Edit_Form', [])
 
-.controller('ProfileFormController', function($scope, postFactory) { //refactored to add factory post submit
-  $scope.profilePostCall = function() {
+.controller('ProfileFormControllerEdit', function($scope, putFactory) {
+  $scope.profilePutCall = function() {
     var profilePayload = {
       first_name: $scope.first_name,
       last_name: $scope.last_name,
@@ -11,10 +11,10 @@ angular.module('Beersportme.controllers.Profile_Form', [])
       zip_code: $scope.last_name,
       gender: $scope.gender,
       availibility: checkAvailability($scope),
-      username: 'test',
-      password: 'bestpasswordever'
+      username: 'testChange',
+      password: 'bestpasswordeverChange'
     };
-    var myDataPromise = postFactory.postData('players', profilePayload);
+    var myDataPromise = putFactory.putData('players', 2, profilePayload);
     myDataPromise.then(function(result) {
 
      // this is only run after postData() resolves, result is the status

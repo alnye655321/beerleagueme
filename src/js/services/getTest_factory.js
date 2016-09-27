@@ -35,7 +35,7 @@
 
 
 angular.module('Beersportme.services.getTest', [])
-.factory('getFactory', function ($http, jsonFilter) {
+.factory('getFactoryX', function ($http, jsonFilter) {
   var callURL = "http://node.nyedigital.com/api/v1/authors";
     var getData = function() {
       var jsonData = {};
