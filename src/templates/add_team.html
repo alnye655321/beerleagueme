@@ -1,0 +1,62 @@
+<div ui-content-for="title">
+  <span class="title-text">Add a Team</span>
+</div>
+
+<!-- scrollable divs -->
+<div class="scrollable">
+ <div class="scrollable-content section">
+
+<!-- main content -->
+<form class="form-horizontal" method="POST">
+  <fieldset>
+  <!-- event name -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="teamName">Team Name</label>
+    <div class="col-md-4">
+      <input id="teamName" name="teamName" type="text" placeholder="Team Awesome" class="form-control input-md">
+    </div>
+  </div>
+  <!-- sport type -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="imageUrl">Team Photo</label>
+    <div class="col-md-4">
+      <input id="imageUrl" name="imageUrl" type="text" placeholder="http://coolimage.jpg" class="form-control input-md">
+    </div>
+  </div>
+  <!-- Date -->
+  <div class="form-group">
+    <label class="col-md-5 control-label" for="gender">Select Gender</label>
+    <label class="form-check-inline gender">
+      <input class="form-check-input" type="radio" name="gender" id="female" value="f">&nbsp;&nbsp;Female
+    </label>
+    <label class="form-check-inline gender">
+      <input class="form-check-input" type="radio" name="gender" id="male" value="m">&nbsp;&nbsp;Male
+    </label>
+    <label class="form-check-inline gender">
+      <input class="form-check-input" type="radio" name="gender" id="coed" value="t">&nbsp;&nbsp;Co-ed
+    </label>
+  </div>
+
+  <!-- description -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="zip">Zip Code</label>
+    <div class="col-md-4">
+      <input class="form-control col-md-4" type="number" min="0" minlength="5" maxlength="5" name="zip" id="zip"/>
+    </div>
+  </div>
+
+  <!-- Button (Double) -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <button id="scheduleEvent" name="schedule" class="btn btn-success">Create Team</button>
+      <button id="cancel" name="cancel" class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+
+<!-- end fieldset -->
+  </fieldset>
+</form>
+
+<!-- close scrollable divs -->
+  </div>
+</div>
