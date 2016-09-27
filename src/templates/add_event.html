@@ -1,0 +1,89 @@
+<div ui-content-for="title">
+  <span class="title-text">Add an Event</span>
+</div>
+
+<!-- scrollable divs -->
+<div class="scrollable">
+ <div class="scrollable-content section">
+
+<!-- main content -->
+<form class="form-horizontal" method="POST">
+  <fieldset>
+  <!-- event name -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="eventName">Event Name</label>
+    <div class="col-md-4">
+      <input id="eventName" name="eventName" type="text" placeholder="Kickball in the Park" class="form-control input-md">
+    </div>
+  </div>
+  <!-- sport type -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="sportType">Select Sport Type</label>
+    <div class="col-md-4">
+      <select class="form-control">
+        <!-- loop through all sports -->
+        <option>Sports</option>
+        <option>Sports</option>
+        <option>Sports</option>
+        <option>Sports</option>
+      </select>
+    </div>
+  </div>
+  <!-- Date -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="eventDate">Event Date</label>
+    <div class="col-md-4">
+      <input id="eventDate" name="eventDate" type="date" class="form-control input-md">
+    </div>
+  </div>
+
+  <!-- location -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="location">Location</label>
+    <div class="col-md-4">
+      <select class="form-control" name="location">
+        <!-- loop through all sports -->
+        <option>Sports</option>
+        <option>Sports</option>
+        <option>Sports</option>
+        <option>Sports</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Start - End Times -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="startTime">Start Time</label>
+    <div class="col-md-4">
+      <input id="startTime" name="startTime" type="text" class="form-control input-md">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="endTime">End Time</label>
+    <div class="col-md-4">
+      <input id="endTime" name="endTime" type="text" class="form-control input-md">
+    </div>
+  </div>
+
+  <!-- description -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="description">Description</label>
+    <div class="col-md-4">
+      <textarea class="form-control" rows="4" name="description" id="description"></textarea>
+    </div>
+  </div>
+
+  <!-- Button (Double) -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <button id="scheduleEvent" name="schedule" class="btn btn-success">Schedule Event</button>
+      <button id="cancel" name="cancel" class="btn btn-default">Cancel</button>
+    </div>
+  </div>
+
+  </fieldset>
+</form>
+
+<!-- close scrollable divs -->
+  </div>
+</div>
