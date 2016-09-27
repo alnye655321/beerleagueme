@@ -9,8 +9,7 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.Profile_Form',
   'Beersportme.controllers.Profile_Edit_Form',
   'Beersportme.controllers.getAllTeams',
-  'Beersportme.controllers.getAllSports',
-  'Beersportme.controllers.getAllEvents'
+  'Beersportme.controllers.getAllSports'
 ]);
 
 app.config(function($routeProvider) {
