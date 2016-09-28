@@ -2,7 +2,7 @@ angular.module('Beersportme.controllers.getMyEvents', [])
 .controller("getMyEvents", function ($scope, getFactory, postFactory)
 {
   var userID = $scope.userID;
-  var myDataPromise = getFactory.getData('myevents/' + userID);
+  var myDataPromise = getFactory.getData('events/myevents/' + userID);
   myDataPromise.then(function(result) {
 
    // this is only run after getData() resolves
