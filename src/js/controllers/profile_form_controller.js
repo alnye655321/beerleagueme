@@ -11,6 +11,7 @@ angular.module('Beersportme.controllers.Profile_Form', [])
       zip_code: $scope.last_name,
       gender: $scope.gender,
       availibility: checkAvailability($scope),
+      sports: $scope.preferred_sports,
       username: 'test',
       password: 'bestpasswordever'
     };
