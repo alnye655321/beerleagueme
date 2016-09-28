@@ -12,7 +12,9 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.Profile_Edit_Form',
   'Beersportme.controllers.getAllTeams',
   'Beersportme.controllers.getAllSports',
-  'Beersportme.controllers.getAllEvents'
+  'Beersportme.controllers.getAllEvents',
+  'Beersportme.controllers.getMyEvents',
+  'Beersportme.controllers.getMyTeams'
 ]);
 
 app.config(function($routeProvider, $authProvider) {
@@ -27,7 +29,7 @@ app.config(function($routeProvider, $authProvider) {
   $routeProvider.when('/tabs', {templateUrl:'tabs.html',  reloadOnSearch: false});
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
-  $routeProvider.when('/profile', {templateUrl:'profile-form.html',  reloadOnSearch: false});
+  $routeProvider.when('/create_profile', {templateUrl:'create_profile.html',  reloadOnSearch: false});
   $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
