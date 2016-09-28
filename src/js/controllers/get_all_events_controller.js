@@ -12,10 +12,10 @@ angular.module('Beersportme.controllers.getAllEvents', [])
   $scope.registerSingleEvent = function(eventID, userID) {
     console.log(userID);
     var payload = {
-      first_name: userID,
-      last_name: eventID
+      player_id: userID,
+      event_id: eventID
     };
-    var myDataPromise = postFactory.postData('players_events', payload);
+    var myDataPromise = postFactory.postData('events/register', payload);
     myDataPromise.then(function(result) {
 
      // this is only run after postData() resolves, result is the status
