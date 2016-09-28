@@ -1,17 +1,18 @@
 angular.module('Beersportme.controllers.Profile_Form', [])
 
 .controller('ProfileFormController', function($scope, postFactory) { //refactored to add factory post submit
+  $scope.sportArr = [];
   $scope.profilePostCall = function() {
     var profilePayload = {
       first_name: $scope.first_name,
       last_name: $scope.last_name,
-      image: $scope.profile_picture,
+      image: $scope.image,
       email: $scope.email_address,
       tagline: $scope.tagline,
       zip_code: $scope.last_name,
       gender: $scope.gender,
+      sports: $scope.sportArr,
       availibility: checkAvailability($scope),
-      sports: $scope.preferred_sports,
       username: 'test',
       password: 'bestpasswordever'
     };
@@ -20,11 +21,22 @@ angular.module('Beersportme.controllers.Profile_Form', [])
 
      // this is only run after postData() resolves, result is the status
      //$scope.SuccessPopup = somethin;
-     console.log('succuss!')
+     console.log('success!')
 
     });
   };
 
+  $scope.checkSport = function(sport, el) {
+    if (sport === true) {
+      $scope.sportArr.push(el);
+    } else {
+      var index = $scope.sportArr.indexOf(el)
+      if (index >= 0) {
+        $scope.sportArr.splice(index, 1);
+      }
+    }
+    return $scope.sportArr;
+  }
 });
 
 function checkAvailability($scope) {
@@ -47,6 +59,5 @@ function checkAvailability($scope) {
   } else if(scopeWeekend == 5){
     intArray.push(5);
   }
-  console.log(parseInt(intArray.join("")));
   return parseInt(intArray.join(""));
 }

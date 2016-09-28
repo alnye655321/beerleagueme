@@ -17,10 +17,10 @@
         </div>
         <div class="form-group">
           <label>Profile Picture</label>
-          <input type="text" ng-model="profile_picture" class="profile-picture form-control">
+          <input type="text" ng-model="image" class="profile-picture form-control">
         </div>
-        <div ng-if="profile_picture">
-          <img class="profile-pic" src={{profile_picture}}>
+        <div ng-if="image">
+          <img class="profile-pic" src={{image}}>
         </div>
         <div class="form-group">
           <label>Email Address</label>
@@ -46,47 +46,48 @@
           <label>Zip Code</label>
           <input type="text" ng-model="zip_code" class="form-control">
         </div>
+        <!-- preferred sport loop -->
         <div class="form-group">
-          <label>Preffered Sports</label>
+          <label>Preferred Sports</label>
             <div class="row">
               <div class="pref-sports col-xs-4">
-                Soccer<ui-switch ng-model="soccer"></ui-switch>
+                Soccer<ui-switch ng-model="soccerVal" ng-click="checkSport(soccerVal, 'Soccer')"></ui-switch>
               </div>
               <div class="pref-sports col-xs-4">
-                Ping Pong<ui-switch ng-model="pingpong"></ui-switch>
+                Ping Pong<ui-switch ng-model="pingpongVal" ng-click="checkSport(pingpongVal, 'Ping Pong')"></ui-switch>
               </div>
               <div class="pref-sports col-xs-4">
-                Basketball<ui-switch ng-model="basketball"></ui-switch>
+                Basketball<ui-switch ng-model="basketballVal" ng-click="checkSport(basketballVal, 'Basketball')"></ui-switch>
               </div>
             </div>
             <div class="row">
               <div class="pref-sports col-xs-4">
-                Badminton<ui-switch ng-model="badminton"></ui-switch>
+                Badminton<ui-switch ng-model="badmintonVal" ng-click="checkSport(badmintonVal, 'Badminton')"></ui-switch>
               </div>
               <div class="pref-sports col-xs-4">
-                Flag Football<ui-switch ng-model="flagfootball"></ui-switch>
+                Flag Football<ui-switch ng-model="flagfootballVal" ng-click="checkSport(flagfootballVal, 'Flag Football')"></ui-switch>
               </div>
               <div class="pref-sports col-xs-4">
-                Kickball<ui-switch ng-model="kickball"></ui-switch>
-              </div>
-            </div>
-            <div class="row">
-              <div class="pref-sports col-xs-4">
-                Softball<ui-switch ng-model="softball"></ui-switch>
-              </div>
-              <div class="pref-sports col-xs-4">
-                Baseball<ui-switch ng-model="baseball"></ui-switch>
-              </div>
-              <div class="pref-sports col-xs-4">
-                Beer Pong<ui-switch ng-model="beerpong"></ui-switch>
+                Kickball<ui-switch ng-model="kickballVal" ng-click="checkSport(kickballVal, 'Kickball')"></ui-switch>
               </div>
             </div>
             <div class="row">
               <div class="pref-sports col-xs-4">
-                Hockey<ui-switch ng-model="hockey"></ui-switch>
+                Softball<ui-switch ng-model="softballVal" ng-click="checkSport(softballVal, 'Softball')"></ui-switch>
               </div>
               <div class="pref-sports col-xs-4">
-                Cornhole<ui-switch ng-model="cornhole"></ui-switch>
+                Baseball<ui-switch ng-model="baseballVal" ng-click="checkSport(baseballVal, 'Baseball')"></ui-switch>
+              </div>
+              <div class="pref-sports col-xs-4">
+                Beer Pong<ui-switch ng-model="beerpongVal" ng-click="checkSport(beerpongVal, 'Beer Pong')"></ui-switch>
+              </div>
+            </div>
+            <div class="row">
+              <div class="pref-sports col-xs-4">
+                Hockey<ui-switch ng-model="hockeyVal" ng-click="checkSport(hockeyVal, 'Hockey')"></ui-switch>
+              </div>
+              <div class="pref-sports col-xs-4">
+                Cornhole<ui-switch ng-model="cornholeVal" ng-click="checkSport(cornholeVal, 'Cornhole')"></ui-switch>
               </div>
             </div>
         </div>
@@ -97,7 +98,7 @@
               AM<ui-switch ng-model="availabilityAM" value="1"></ui-switch>
             </div>
             <div class="availability col-xs-6">
-              PM<ui-switch ng-model="availabilityAM" value="2"></ui-switch>
+              PM<ui-switch ng-model="availabilityPM" value="2"></ui-switch>
             </div>
           </div>
           <div class="row">
