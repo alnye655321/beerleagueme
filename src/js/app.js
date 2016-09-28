@@ -53,11 +53,11 @@ app.config(['$httpProvider', function($httpProvider) {
 
 ]);
 
-app.run(function ($rootScope, $location, $route, $auth) {
- $rootScope.$on('$routeChangeStart', function (event, next, current) {
-   if (next.restricted && !$auth.isAuthenticated()) {
-     $location.path('/');
-     $route.reload();
-   }
- });
-});
+// app.run(function ($rootScope, $location, $route, $auth) {
+//  $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//    if (next.restricted && !$auth.isAuthenticated()) {
+//      $location.path('/');
+//      $route.reload();
+//    }
+//  });
+// });

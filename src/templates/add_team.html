@@ -13,27 +13,27 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="teamName">Team Name</label>
     <div class="col-md-4">
-      <input id="teamName" name="teamName" type="text" placeholder="Team Awesome" class="form-control input-md">
+      <input id="teamName" name="teamName" ng-model="teamName" type="text" placeholder="Team Awesome" class="form-control input-md">
     </div>
   </div>
   <!-- sport type -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="imageUrl">Team Photo</label>
     <div class="col-md-4">
-      <input id="imageUrl" name="imageUrl" type="text" placeholder="http://coolimage.jpg" class="form-control input-md">
+      <input id="imageUrl" name="imageUrl" ng-model="imageUrl" type="text" placeholder="http://coolimage.jpg" class="form-control input-md">
     </div>
   </div>
-  <!-- Date -->
+  <!-- Gender -->
   <div class="form-group">
     <label class="col-md-5 control-label" for="gender">Select Gender</label>
     <label class="form-check-inline gender">
-      <input class="form-check-input" type="radio" name="gender" id="female" value="f">&nbsp;&nbsp;Female
+      <input class="form-check-input" type="radio" name="gender" ng-model="female" id="female" value="f">&nbsp;&nbsp;Female
     </label>
     <label class="form-check-inline gender">
-      <input class="form-check-input" type="radio" name="gender" id="male" value="m">&nbsp;&nbsp;Male
+      <input class="form-check-input" type="radio" name="gender" ng-model="male" id="male" value="m">&nbsp;&nbsp;Male
     </label>
     <label class="form-check-inline gender">
-      <input class="form-check-input" type="radio" name="gender" id="coed" value="t">&nbsp;&nbsp;Co-ed
+      <input class="form-check-input" type="radio" name="gender" ng-model="t" id="coed" value="t">&nbsp;&nbsp;Co-ed
     </label>
   </div>
 
@@ -41,7 +41,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="zip">Zip Code</label>
     <div class="col-md-4">
-      <input class="form-control col-md-4" type="number" min="0" minlength="5" maxlength="5" name="zip" id="zip"/>
+      <input class="form-control col-md-4" type="number" min="0" minlength="5" maxlength="5" ng-model="zip" name="zip" id="zip"/>
     </div>
   </div>
 
