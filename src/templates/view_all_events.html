@@ -12,36 +12,40 @@
 <!-- scrollable content -->
 <div class="scrollable">
   <div class="scrollable-content">
-    <!-- <div ng-controller="getAllEvents"> -->
+    <div ng-controller="getAllEvents">
   <!-- main content -->
+
       <div class="panel-group"
         ui-shared-state="myAccordion"
         ui-default="2">
 
-        <div class="panel panel-default" ng-repeat="i in [1,2,3,4,5]">
-        <div class="panel panel-default" ng-repeat="i in [1,2,3,4,5]">
-          <div class="panel-heading" ui-set="{'myAccordion': i}">
-            <h4 class="panel-title">Tennis Event #{{i}}</h4>
+        <div class="panel panel-default" ng-repeat="obj in Get_Data.data.events.events">
+
+          <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
+            <div class="panel-title pull-left">{{obj.name}}</div>
+           <div class="panel-title pull-right">{{obj.date}}</div>
+           <div class="clearfix"></div>
           </div>
 
-          <div ui-if="myAccordion == {{i}}">
+          <div ui-if="myAccordion == {{obj.id}}">
             <div class="panel-body">
               <div>
-                <strong>Location:</strong> City Park <br>
-                <strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                <strong>Start Time:</strong> 7:00pm <br>
-                <strong>End Time:</strong> 9:00pm <br>
+                <strong>Start Time:</strong> {{obj.start_time}}<br>
+                <strong>End Time:</strong> {{obj.end_time}}<br>
+                <strong>Description:</strong> {{obj.description}}<br>
+                <strong>Sport:</strong> TBD <br>
+                <strong>Location:</strong>TBD <br>
               </div>
               <div class="panel-footer clearfix">
                 <div class="pull-right">
                   <a href="" ui-turn-on="modal_view_all_events" class="btn btn-default">Learn More</a>
                     <!-- <a href="#" class="btn btn-default">Learn More</a> -->
-                    <a href="#" class="btn btn-primary">Register</a>
+                    <a href="#" class="btn btn-primary" ng-click="register(obj.id)">Register</a>
                 </div>
               </div> <!-- close panel footer -->
             </div> <!-- close panel body -->
           </div><!-- close panel body if "state" -->
-        </div> <!-- close angular ng-repeat -->
+
       </div>
 
 <!-- modal -->
@@ -50,6 +54,7 @@
 </div>
 
 <!-- end scrollable content -->
-    </div>
+    </div> <!-- end panel group -->
+  </div>
   </div>
 </div>
