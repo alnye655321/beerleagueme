@@ -1,11 +1,12 @@
 angular.module('Beersportme.controllers.Main', [])
 
-.controller('MainController', function($scope){
+.controller('MainController', function($rootScope, $scope){
   $scope.swiped = function(direction) {
     alert('Swiped ' + direction);
   };
   //$scope.userID = 1;
-  
+  $rootScope.userID = 1;
+
   $scope.chatUsers = [
     {name: 'Carlos  Flowers', online: true},
     {name: 'Byron Taylor', online: true},

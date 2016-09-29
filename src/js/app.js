@@ -33,6 +33,7 @@ app.config(function($routeProvider, $authProvider) {
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
   $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_my_events', {templateUrl:'view_my_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_teams', {templateUrl:'view_my_teams.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_teams', {templateUrl:'view_all_teams.html',  reloadOnSearch: false});
