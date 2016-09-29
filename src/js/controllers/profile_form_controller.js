@@ -29,7 +29,9 @@ angular.module('Beersportme.controllers.Profile_Form', [])
   $scope.checkSport = function(sport, el) {
     if (sport === true) {
       $scope.sportArr.push(el);
+      $scope.IsHidden = false;
     } else {
+      $scope.IsHidden = true;
       var index = $scope.sportArr.indexOf(el)
       if (index >= 0) {
         $scope.sportArr.splice(index, 1);
