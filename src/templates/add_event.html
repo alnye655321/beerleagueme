@@ -5,63 +5,66 @@
 <!-- scroll divs -->
 <div class="scrollable">
  <div class="scrollable-content section">
-
+  <div ng-controller="AddEventController">
 <!-- main content -->
-<form class="form-horizontal" method="POST">
+<form class="form-horizontal" method="POST" ng-submit="eventPostCall()">
   <fieldset>
   <!-- event name -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="eventName">Event Name</label>
+    <label class="col-md-4 control-label" name="eventName">Event Name</label>
     <div class="col-md-4">
-      <input id="eventName" name="eventName" type="text" placeholder="Kickball in the Park" class="form-control input-md">
+      <input id="eventName" ng-model="eventName" type="text" placeholder="Kickball in the Park" class="form-control input-md">
     </div>
   </div>
   <!-- sport type -->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="sportType">Select Sport Type</label>
-    <div class="col-md-4">
-      <select class="form-control">
-        <!-- loop through all sports -->
-        <option>Sports</option>
-        <option>Sports</option>
-        <option>Sports</option>
-        <option>Sports</option>
-      </select>
+  <div ng-controller="getAllSports">
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="sportType">Select Sport Type</label>
+      <div class="col-md-4">
+        <select class="form-control" ng-model="sportID">
+          <!-- loop through all sports -->
+          <option disabled>Select a Sport</option>
+          <option ng-repeat="obj in Get_Data.data.sports" ng-value="obj.id">{{obj.type}}</option>
+          <!-- end loop -->
+        </select>
+        <div>{{sportID}}</div>
+      </div>
     </div>
   </div>
+
   <!-- Date -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="eventDate">Event Date</label>
     <div class="col-md-4">
-      <input id="eventDate" name="eventDate" type="date" class="form-control input-md">
+      <input id="eventDate" ng-model="eventDate" type="date" class="form-control input-md">
     </div>
   </div>
 
   <!-- location -->
   <div class="form-group">
+    <div ng-controller="getAllLocations">
     <label class="col-md-4 control-label" for="location">Location</label>
     <div class="col-md-4">
-      <select class="form-control" name="location">
-        <!-- loop through all sports -->
-        <option>Sports</option>
-        <option>Sports</option>
-        <option>Sports</option>
-        <option>Sports</option>
+      <select class="form-control" ng-model="location">
+        <!-- loop through all locations -->
+        <option disabled>Select a Location</option>
+        <option ng-repeat="obj in Get_Data.data.locations" ng-value="obj.id">{{obj.location_name}}</option>
       </select>
     </div>
+  </div>
   </div>
 
   <!-- Start - End Times -->
   <div class="form-group">
     <label class="col-md-4 control-label" for="startTime">Start Time</label>
     <div class="col-md-4">
-      <input id="startTime" name="startTime" type="text" class="form-control input-md">
+      <input id="startTime" ng-model="startTime" type="text" class="form-control input-md">
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-4 control-label" for="endTime">End Time</label>
     <div class="col-md-4">
-      <input id="endTime" name="endTime" type="text" class="form-control input-md">
+      <input id="endTime" ng-model="endTime" type="text" class="form-control input-md">
     </div>
   </div>
 
@@ -69,7 +72,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="description">Description</label>
     <div class="col-md-4">
-      <textarea class="form-control" rows="4" name="description" id="description"></textarea>
+      <textarea class="form-control" rows="4" ng-model="description" id="description"></textarea>
     </div>
   </div>
 
@@ -86,4 +89,5 @@
 
 <!-- close scrollable divs -->
   </div>
+</div>
 </div>
