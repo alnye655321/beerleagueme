@@ -15,7 +15,9 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getAllEvents',
   'Beersportme.controllers.getMyEvents',
   'Beersportme.controllers.getMyTeams',
-  'Beersportme.controllers.getProfile'
+  'Beersportme.controllers.getProfile',
+  'Beersportme.controllers.getAllLocations',
+  'Beersportme.controllers.Add_Event'
 ]);
 
 app.config(function($routeProvider, $authProvider) {
@@ -31,7 +33,8 @@ app.config(function($routeProvider, $authProvider) {
   $routeProvider.when('/tabs', {templateUrl:'tabs.html',  reloadOnSearch: false});
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
-  $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
+  // $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
+  $routeProvider.when('/edit_my_profile', {templateUrl:'modal_edit_my_profile.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_events', {templateUrl:'view_my_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
