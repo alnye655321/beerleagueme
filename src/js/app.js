@@ -14,7 +14,8 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getAllSports',
   'Beersportme.controllers.getAllEvents',
   'Beersportme.controllers.getMyEvents',
-  'Beersportme.controllers.getMyTeams'
+  'Beersportme.controllers.getMyTeams',
+  'Beersportme.controllers.getProfile'
 ]);
 
 app.config(function($routeProvider, $authProvider) {

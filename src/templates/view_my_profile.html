@@ -4,18 +4,32 @@
 
 <div class="scrollable">
   <div class="scrollable-content">
-  <button class="btn pull-right btn-success" id="edit-profile">Edit Profile</button>
+  <!-- make a modal -->
+  <div ng-controller="getProfile">
+  <a href="" ui-turn-on="modal_edit_my_profile" class="btn-profile btn btn-success pull-right">Edit Profile</a>
     <div class="container-fluid">
       <div class="row vertical-align">
-        <div class="col-xs-6 col-md-4 col-lg-2">
-          <img src="http://placehold.it/200x200" alt="Profile Picture" class="img-circle"/>
-        </div>
-        <div class="col-xs-6 col-md-8 col-lg-10">
-          <p class="name-header align-center text-center">Jane Doe</p>
+        <!-- <div class="col-xs-12 col-md-4 col-lg-2"> -->
+          <div class="col-xs-12 profile-pic center-block">
+            <img src="{{Get_Data.data.player.player[0].profile_picture}}" alt="Profile Picture" class="profile-pic img-circle"/>
+          </div>
+        <!-- </div> -->
+        <div class="col-xs-12 col-md-8 col-lg-10">
+          <p class="name-header align-center text-center">{{Get_Data.data.player.player[0].first_name}} {{Get_Data.data.player.player[0].last_name}}</p>
           <p class="pro-location"><i class="fa fa-map-marker" aria-hidden="true"></i> Denver, CO</p>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...</p>
+          <p class="description">About Me:</p>
+          <p class="description">{{Get_Data.data.player.player[0].tagline}}</p>
+          <p class="description">{{Get_Data.data.player.player[0].availability}}</p>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- modal -->
+  <div ui-content-for="modals">
+    <div ng-include="'modal_edit_my_profile.html'"></div>
+  </div>
+
+  <!-- end scrollable divs -->
   </div>
 </div>
