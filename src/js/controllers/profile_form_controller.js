@@ -1,29 +1,52 @@
 angular.module('Beersportme.controllers.Profile_Form', [])
 
-.controller('ProfileFormController', function($scope, postFactory) { //refactored to add factory post submit
+.controller('ProfileFormController', function($rootScope, $scope, $http, jsonFilter, $window) { //refactored to add factory post submit
   $scope.sportArr = [];
   $scope.profilePostCall = function() {
     var profilePayload = {
       first_name: $scope.first_name,
       last_name: $scope.last_name,
-      image: $scope.image,
+      profile_picture: $scope.image,
       email: $scope.email_address,
       tagline: $scope.tagline,
       zip_code: $scope.last_name,
       gender: $scope.gender,
-      sports: $scope.sportArr,
+      //sports: $scope.sportArr,
       availibility: checkAvailability($scope),
-      username: 'test',
-      password: 'bestpasswordever'
+      username: $scope.username,
+      password: $scope.password
     };
-    var myDataPromise = postFactory.postData('players', profilePayload);
-    myDataPromise.then(function(result) {
+    // var myDataPromise = postFactory.postData('players', profilePayload);
+    // myDataPromise.then(function(result) {
+    //   $rootScope.userID = result.id;
+    //   console.log(result);
+    //   console.log($rootScope.userID);
+    //  // this is only run after postData() resolves, result is the status
+    //  //$scope.SuccessPopup = somethin;
+    //  console.log('success!')
+    // });
 
-     // this is only run after postData() resolves, result is the status
-     //$scope.SuccessPopup = somethin;
-     console.log('success!')
+    $http({
+    method: 'POST',
+    url: 'http://immense-mountain-80924.herokuapp.com/players',
+    data: profilePayload
+    }).
+    success(function(data, status, header, config) {
+        // console.log(header());
+        // console.log(config);
+        console.log(data.newPlayer.id);
+        $rootScope.userID = data.newPlayer.id;
+        //console.log(status);
+        //console.log(header);
+        //console.log(config);
+        //$scope.dataU = data;
+        //$scope.statusU = status;
+        $window.location.href = '#/home';
+    }).error(function(data, status, header, config){
+        console.log(header());
+        console.log(config);
+    })
 
-    });
   };
 
   $scope.checkSport = function(sport, el) {

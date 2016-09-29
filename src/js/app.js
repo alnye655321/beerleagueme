@@ -24,12 +24,12 @@ app.config(function($routeProvider, $authProvider) {
    clientId: '885c082728340e4b3d3f',
    redirectUri: 'http://immense-mountain-80924.herokuapp.com/auth/github'
   });
-  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});
+  $routeProvider.when('/', {templateUrl:'create_profile.html',  reloadOnSearch: false, restricted: false});
+  $routeProvider.when('/home', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});
   $routeProvider.when('/members', {template:'<h1>Logged in</h1>',  reloadOnSearch: false, restricted: true});
   $routeProvider.when('/tabs', {templateUrl:'tabs.html',  reloadOnSearch: false});
   $routeProvider.when('/swipe', {templateUrl:'swipe.html',  reloadOnSearch: false});
   $routeProvider.when('/forms', {templateUrl:'forms.html',  reloadOnSearch: false});
-  $routeProvider.when('/create_profile', {templateUrl:'create_profile.html',  reloadOnSearch: false});
   $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
@@ -44,15 +44,15 @@ app.config(function($routeProvider, $authProvider) {
 });
 
 
-app.config(['$httpProvider', function($httpProvider) {
-
-        $httpProvider.defaults.useXDomain = true;
-
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-    }
-
-]);
+// app.config(['$httpProvider', function($httpProvider) {
+//
+//         $httpProvider.defaults.useXDomain = true;
+//
+//         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+//
+//     }
+//
+// ]);
 
 app.directive('carousel', function() {
   return {
@@ -154,6 +154,16 @@ app.directive('carouselItem', function($drag) {
       });
     }
   };
+});
+
+app.run(function($http, $rootScope) {
+
+  //$http.defaults.headers.common.Authorization = 'login YmVlcDpi' ;
+  //or try this
+  $http.defaults.headers.common['Auth_Token'] = $rootScope.userID;
+  //$http.defaults.headers.common['userid'] = $rootScope.userID;
+  //$http.defaults.headers.common['Auth_Token'] = 'password';
+
 });
 
 // app.run(function ($rootScope, $location, $route, $auth) {
