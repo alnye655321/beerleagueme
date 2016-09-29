@@ -15,16 +15,19 @@
     <script src="js/app.min.js"></script>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script> -->
-    <!-- <script src="js/mobile-angular-ui.min.js"></script> -->
+    <script src="http://mobileangularui.com/dist/js/mobile-angular-ui.min.js"></script>
     <!-- Required to use $touch, $swipe, $drag and $translate services -->
-    <!-- <script src="js/mobile-angular-ui.gestures.min.js"></script> -->
+    <script src="http://mobileangularui.com/dist/js/mobile-angular-ui.gestures.min.js"></script>
   </head>
   <body ng-app="Beersportme" ng-controller="MainController">
     <!-- Sidebars -->
     <div ng-include="'sidebar.html'" ui-track-as-search-param='true'
             class="sidebar sidebar-left"></div>
+    <!-- chat sidebar -->
+    <div ng-include="'sidebarRight.html'"
+            class="sidebar sidebar-right"></div>
 
-    <div class="app">
+    <div class="app" ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')">
 
       <!-- Navbars -->
       <div class="navbar navbar-app navbar-absolute-top">
