@@ -1,18 +1,18 @@
-<div class="modal" ui-if="view_all_events_modal" ui-shared-state="view_all_events_modal">
+<div class="modal" ui-if="modal_view_success" ui-shared-state="modal_view_success">
   <div class="modal-backdrop in"></div>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close"
-                ui-turn-off="view_all_events_modal">&times;</button>
+                ui-turn-off="modal_view_success">&times;</button>
         <h4 class="modal-title">Modal Info</h4>
       </div>
       <div class="modal-body">
         <p class="title-text">Success!</p>
       </div>
       <div class="modal-footer">
-        <button ui-turn-off="view_all_events_modal" class="btn btn-default">Find an Opponent</button>
-        <button ui-turn-off="view_all_events_modal" class="btn btn-warning">Close</button>
+        <button ui-turn-off="modal_view_success" class="btn btn-default">Find an Opponent</button>
+        <button ui-turn-off="modal_view_success" class="btn btn-warning">Close</button>
       </div>
     </div>
   </div>

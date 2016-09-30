@@ -1,20 +1,21 @@
-angular.module('Beersportme.controllers.Add_Event', [])
+angular.module('Beersportme.controllers.Add_Team', [])
 
-.controller('AddEventController', function($rootScope, $scope, $http, jsonFilter, $window) { //refactored to add factory post submit;
-  $scope.children = {};
-  $scope.eventPostCall = function() {
-    var eventPayload = {
-      name: $scope.eventDate,
-      image: $scope.startTime,
-      gender: $scope.endTime,
-      coed: $scope.eventName,
-      zip: $scope.zip
+.controller('AddTeamController', function($rootScope, $scope, $http, jsonFilter, $window) { //refactored to add factory post submit;
+  $scope.sportID = $rootScope.sportID;
+  $scope.teamPostCall = function() {
+    var teamPayload = {
+      name: $scope.teamName,
+      image: $scope.imageUrl,
+      gender: $scope.gender,
+      coed: $scope.coed,
+      zip: $scope.zip,
+      sports_id: $scope.children.AllSports.sportID
     };
-    console.log(eventPayload);
+    console.log(teamPayload);
     $http({
       method: 'POST',
       url: 'http://immense-mountain-80924.herokuapp.com/teams',
-      data: eventPayload
+      data: teamPayload
     }).
     success(function(data) {
       console.log(data, "Success");
