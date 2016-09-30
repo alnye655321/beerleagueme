@@ -22,4 +22,8 @@ angular.module('Beersportme.controllers.getAllTeams', [])
    //console.log("data.name"+$scope.data.name);
   });
 
+  $scope.registerClickModal = function(teamID) {
+    $scope.modalTeamID = teamID;
+  };
+
 });

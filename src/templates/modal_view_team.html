@@ -1,21 +1,24 @@
-<div class="modal" ui-if="view_all_events_modal" ui-shared-state="view_all_events_modal">
+<div class="modal" ui-if="modal_view_team" ui-shared-state="modal_view_team">
   <div class="modal-backdrop in"></div>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close"
-                ui-turn-off="view_all_events_modal">&times;</button>
-        <h4 class="modal-title">Modal Info</h4>
+                ui-turn-off="modal_view_team">&times;</button>
+        <h4 class="modal-title">Team Info</h4>
       </div>
       <div class="modal-body">
-        <h2>More Info</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <div ng-repeat="obj in Get_Data.data.teams">
+          <div ng-if="obj.id == modalTeamID">
+          <h2>{{obj.name}}</h2>
+          <p><strong>Zip:</strong> {{obj.zip}}</p>
+          <p><strong>Gender:</strong> {{obj.gender}}</p>
+          <p><strong>Coed:</strong> {{obj.coed}}</p>
+        </div>
+      </div>
       </div>
       <div class="modal-footer">
-        <button ui-turn-off="view_all_events_modal" class="btn btn-default">Close</button>
-        <button ui-turn-off="view_all_events_modal" class="btn btn-primary">Save changes</button>
+        <button ui-turn-off="modal_view_team" class="btn btn-default">Close</button>
       </div>
     </div>
   </div>
