@@ -4,55 +4,71 @@
 
 <!-- scrollable divs -->
 <div class="scrollable">
- <div class="scrollable-content section">
-
+  <div class="scrollable-content section">
+    <div ng-controller="AddTeamController">
 <!-- main content -->
-<form class="form-horizontal" method="POST">
+<form class="form-horizontal" method="POST" ng-submit="teamPostCall()">
   <fieldset>
   <!-- event name -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="teamName">Team Name</label>
-    <div class="col-md-4">
-      <input id="teamName" name="teamName" ng-model="teamName" type="text" placeholder="Team Awesome" class="form-control input-md">
+    <label class="col-sm-4 control-label" for="teamName">Team Name</label>
+    <div class="col-sm-4">
+      <input id="teamName" name="teamName" ng-model="teamName" type="text" placeholder="Team Awesome" class="form-control input-sm">
     </div>
   </div>
   <!-- sport type -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="imageUrl">Team Photo</label>
-    <div class="col-md-4">
-      <input id="imageUrl" name="imageUrl" ng-model="imageUrl" type="text" placeholder="http://coolimage.jpg" class="form-control input-md">
+    <label class="col-sm-4 control-label" for="imageUrl">Team Photo</label>
+    <div class="col-sm-4">
+      <input id="imageUrl" name="imageUrl" ng-model="imageUrl" type="text" placeholder="http://coolimage.jpg" class="form-control input-sm">
     </div>
   </div>
   <!-- Gender -->
   <div class="form-group">
-    <label class="col-md-5 control-label" for="gender">Select Gender</label>
+    <label class="col-sm-5 control-label" for="gender">Select Gender</label>
     <label class="form-check-inline gender">
-      <input class="form-check-input" type="radio" name="gender" ng-model="female" id="female" value="f">&nbsp;&nbsp;Female
+      <input class="form-check-input" type="radio" name="gender" ng-model="gender" id="female" value="f"/>&nbsp;&nbsp;Female
     </label>
     <label class="form-check-inline gender">
-      <input class="form-check-input" type="radio" name="gender" ng-model="male" id="male" value="m">&nbsp;&nbsp;Male
+      <input class="form-check-input" type="radio" name="gender" ng-model="gender" id="male" value="m"/>&nbsp;&nbsp;Male
     </label>
   </div>
+  <div></div>
   <!-- coed? -->
   <div class="form-group">
-    <label class="col-md-5 control-label form-check-inline gender">Is this team coed?&nbsp;&nbsp;
-      <input class="form-check-input" type="radio" name="gender" ng-model="t" value="t">&nbsp;&nbsp;Yes&nbsp;&nbsp;
-      <input class="form-check-input" type="radio" name="gender" ng-model="t" value="f">&nbsp;&nbsp;No&nbsp;&nbsp;
+    <label class="col-sm-5 control-label form-check-inline gender">Is this team coed?&nbsp;&nbsp;
+      <input class="form-check-input" type="radio" name="coed" ng-model="coed" value="t">&nbsp;&nbsp;Yes&nbsp;&nbsp;
+      <input class="form-check-input" type="radio" name="coed" ng-model="coed" value="f">&nbsp;&nbsp;No&nbsp;&nbsp;
     </label>
   </div>
 
   <!-- description -->
   <div class="form-group">
-    <label class="col-md-4 control-label" for="zip">Zip Code</label>
-    <div class="col-md-4">
-      <input class="form-control col-md-4" type="number" min="0" minlength="5" maxlength="5" ng-model="zip" name="zip" id="zip"/>
+    <label class="col-sm-4 control-label" for="zip" ng-model="zip">Zip Code</label>
+    <div class="col-sm-4">
+      <input class="form-control col-sm-4" type="number" min="0" minlength="5" maxlength="5" ng-model="zip" name="zip" id="zip"/>
+    </div>
+  </div>
+
+  <!-- get sports -->
+  <div ng-controller="getAllSports">
+    <div class="form-group">
+      <label class="col-sm-4 control-label" for="sportType">Select Sport Type</label>
+      <div class="col-sm-4">
+        <select class="form-control" ng-model="sportID">
+          <!-- loop through all sports -->
+          <option disabled>Select a Sport</option>
+          <option ng-repeat="obj in Get_Data.data.sports" ng-value="obj.id">{{obj.type}}</option>
+          <!-- end loop -->
+        </select>
+      </div>
     </div>
   </div>
 
   <!-- Button (Double) -->
   <div class="form-group">
-    <div class="col-md-12">
-      <button id="scheduleEvent" name="schedule" class="btn btn-success">Create Team</button>
+    <div class="col-sm-12">
+      <button ui-turn-on="modal_view_success" id="scheduleEvent" name="schedule" class="btn btn-success">Create Team</button>
       <button id="cancel" name="cancel" class="btn btn-default">Cancel</button>
     </div>
   </div>
@@ -61,6 +77,12 @@
   </fieldset>
 </form>
 
-<!-- close scrollable divs -->
-  </div>
+<!-- modal -->
+<div ui-content-for="modals">
+  <div ng-include="'modal_view_success.html'"></div>
 </div>
+
+<!-- close scrollable divs -->
+    </div> <!-- scrollable container -->
+  </div> <!-- scrollable content-section -->
+</div> <!-- end controller div -->

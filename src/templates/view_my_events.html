@@ -23,18 +23,16 @@
 
           <div class="panel-heading" ui-set="{'myAccordion1': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
           <div class="panel-title pull-left">{{obj.name}}</div>
-          <div class="panel-title pull-right">{{obj.date}}</div>
+          <div class="panel-title pull-right">{{obj.date|date:'mediumDate'}}</div>
           <div class="clearfix"></div>
           </div>
 
           <div ui-if="myAccordion1 == {{obj.id}}">
             <div class="panel-body">
               <div>
-                <strong>Start Time:</strong> {{obj.start_time}}<br>
-                <strong>End Time:</strong> {{obj.end_time}}<br>
+                <strong>Start Time:</strong> {{obj.start_time|date:"HH:mm"}}<br>
+                <strong>End Time:</strong> {{obj.end_time|date:"HH:mm"}}<br>
                 <strong>Description:</strong> {{obj.description}}<br>
-                <strong>Sport:</strong> TBD <br>
-                <strong>Location:</strong>TBD <br>
               </div>
               <div class="panel-footer clearfix">
                 <div class="pull-right">

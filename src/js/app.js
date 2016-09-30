@@ -18,7 +18,8 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getProfile',
   'Beersportme.controllers.getAllLocations',
   'Beersportme.controllers.Add_Event',
-  'Beersportme.controllers.carousel'
+  'Beersportme.controllers.carousel',
+  'Beersportme.controllers.Add_Team'
 ]);
 
 app.config(function($routeProvider, $authProvider) {
