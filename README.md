@@ -24,4 +24,6 @@ Currently, coordinating a kickball team for a local league is a practice in diso
   1. To run the server after the build, run `gulp`
   1. Once the server is running, visit http://0.0.0.0:8000/ in your browser
 
-Updated September 30, 2016
+Built for Galvanize Web Development Immersive (g30 cohort) Unit 2 Project
+
+README last updated: September 30, 2016
