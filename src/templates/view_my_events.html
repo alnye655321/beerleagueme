@@ -21,13 +21,13 @@
 
         <div class="panel panel-default" ng-repeat="obj in Get_Data.data.events">
 
-          <div class="panel-heading" ui-set="{'myAccordion1': obj.name}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
+          <div class="panel-heading" ui-set="{'myAccordion1': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
           <div class="panel-title pull-left">{{obj.name}}</div>
           <div class="panel-title pull-right">{{obj.date}}</div>
           <div class="clearfix"></div>
           </div>
 
-          <div ui-if="myAccordion1 == {{obj.name}}">
+          <div ui-if="myAccordion1 == {{obj.id}}">
             <div class="panel-body">
               <div>
                 <strong>Start Time:</strong> {{obj.start_time}}<br>
