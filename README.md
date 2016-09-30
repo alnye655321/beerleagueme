@@ -17,6 +17,9 @@ Currently, coordinating a kickball team for a local league is a practice in diso
 - Node.js RESTful API
   - Access the [Repo Here](https://github.com/tyguy310/sports-league-manager)
 
+### Build Philosophy
+We tackled the build for this application with a service-oriented approach. The backend is a RESTful API service and the front-end is an MVC Javascript application using AngularJS (Mobile Angular UI). The client and server have separate repos and communicate only through API calls and cURL requests.  
+
 #### To run this application locally:
   1. Fork and clone this repository
   1. Run `bower i` in the main file directory
