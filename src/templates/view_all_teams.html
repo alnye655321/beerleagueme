@@ -18,11 +18,16 @@
         <p class="info-block"><i class="fa fa-location-arrow" aria-hidden="true"></i> Zip: {{obj.zip}}</p>
         <p class="capitalize info-block"><i class="fa fa-info" aria-hidden="true"></i> Gender: {{obj.gender}}</p>
         <p class="info-block"><i class="fa fa-venus-mars" aria-hidden="true"></i> Co-ed: {{obj.coed?'Yes':'No'}}</p>
-        <button type="button" class="btn btn-primary btn-sm update-author-btn">View Team</button>
+        <a href="" ui-turn-on="modal_view_team" ng-click="registerClickModal(obj.id)" class="btn btn-primary btn-sm">View Team</a>
         <button type="button" class="btn btn-success btn-sm update-author-btn">Join Team</button>
       </div>
       </div>
     </div>
+  </div>
+
+  <!-- modal -->
+  <div ui-content-for="modals">
+    <div ng-include="'modal_view_team.html'"></div>
   </div>
 
     <!-- close scrollable content divs -->
