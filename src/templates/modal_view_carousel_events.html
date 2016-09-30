@@ -1,0 +1,53 @@
+<div class="modal modal-overlay" ui-if="modal_view_carousel_events" ui-shared-state="modal_view_carousel_events">
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close"
+                ui-turn-off="modal_view_carousel_events">&times;</button>
+        <h4 class="modal-title">Event Info</h4>
+      </div>
+      <div class="modal-body">
+          <div class="panel-group"
+            ui-shared-state="myAccordion2"
+            ui-default="2">
+
+            <div class="panel panel-default" ng-repeat="obj in eventList">
+
+              <div class="panel-heading" ui-set="{'myAccordion2': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
+              <div class="panel-title pull-left">{{obj.name}}</div>
+              <div class="panel-title pull-right">{{obj.date}}</div>
+              <div class="clearfix"></div>
+              </div>
+
+              <div ui-if="myAccordion2 == {{obj.id}}">
+                <div class="panel-body">
+                  <div>
+                    <strong>Start Time:</strong> {{obj.start_time}}<br>
+                    <strong>End Time:</strong> {{obj.end_time}}<br>
+                    <strong>Description:</strong> {{obj.description}}<br>
+                    <strong>Sport:</strong> TBD <br>
+                    <strong>Location:</strong>TBD <br>
+                  </div>
+                  <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                      <a href="#/view_all_events" class="btn btn-default">Learn More</a>
+                        <!-- <a href="#" class="btn btn-default">Learn More</a> -->
+                        <a href="#/view_all_events" class="btn btn-primary">Register</a>
+                    </div>
+                  </div> <!-- close panel footer -->
+                </div> <!-- close panel body -->
+              </div><!-- close panel body if "state" -->
+
+          </div>
+
+    <!-- end scrollable content -->
+        </div> <!-- end panel group -->
+      </div>
+      <div class="modal-footer">
+        <button ui-turn-off="modal_view_carousel_events" class="btn btn-default">Close</button>
+        <!-- <button ui-turn-off="modal_view_my_events" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
