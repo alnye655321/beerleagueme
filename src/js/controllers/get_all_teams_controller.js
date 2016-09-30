@@ -10,7 +10,6 @@ angular.module('Beersportme.controllers.getAllTeams', [])
 
   var myDataPromise = getFactory.getData('teams');
   myDataPromise.then(function(result) {
-    console.log(result);
     const teams = result.data.teams;
     const updatedResult = teams.map(function(team) {
       team.newImage = teamImages[Math.floor(Math.random()*teamImages.length)];

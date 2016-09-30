@@ -11,14 +11,13 @@ angular.module('Beersportme.controllers.Add_Team', [])
       zip: $scope.zip,
       sports_id: $scope.children.AllSports.sportID
     };
-    console.log(teamPayload);
     $http({
       method: 'POST',
       url: 'http://immense-mountain-80924.herokuapp.com/teams',
       data: teamPayload
     }).
     success(function(data) {
-      console.log(data, "Success");
+      console.log(data);
     })
     .error(function(data) {
       console.log(data);
