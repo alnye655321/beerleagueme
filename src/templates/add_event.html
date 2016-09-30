@@ -79,8 +79,8 @@
   <!-- Button (Double) -->
   <div class="form-group">
     <div class="col-md-12">
-      <button id="scheduleEvent" name="schedule" class="btn btn-success">Schedule Event</button>
-      <button id="cancel" name="cancel" class="btn btn-default">Cancel</button>
+      <a href="" ui-turn-on="modal_view_success" class="btn btn-sm btn-success">Create My Team</a>
+      <button id="cancel" name="cancel" class="btn btn-sm btn-danger">Cancel</button>
     </div>
   </div>
 
@@ -88,6 +88,11 @@
 </form>
 
 <!-- close scrollable divs -->
+    </div>
   </div>
 </div>
+
+<!-- modal -->
+<div ui-content-for="modals">
+  <div ng-include="'modal_view_success.html'"></div>
 </div>
