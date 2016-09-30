@@ -6,21 +6,22 @@
 <div class="scrollable">
   <div class="scrollable-content">
    <div ng-controller="getAllTeams">
+     <div ng-controller="teamImageArray">
 
   <!-- main content -->
-  <div ng-repeat="obj in Get_Data.data.teams">
+  <div ng-repeat="obj in Get_Data">
     <div class="row">
       <div class="thumbnail text-center">
-        <img src="https://hd.unsplash.com/photo-1431324003833-a7d76ef5770b" class="img-responsive">
-      <div class="caption">
-        <h3 class="title capitalize">{{obj.name}}</h3>
-        <p class="info-block">{{obj.type}}</p>
-        <p class="info-block"><i class="fa fa-location-arrow" aria-hidden="true"></i> Zip: {{obj.zip}}</p>
-        <p class="capitalize info-block"><i class="fa fa-info" aria-hidden="true"></i> Gender: {{obj.gender}}</p>
-        <p class="info-block"><i class="fa fa-venus-mars" aria-hidden="true"></i> Co-ed: {{obj.coed?'Yes':'No'}}</p>
-        <button type="button" class="btn btn-primary btn-sm update-author-btn">View Team</button>
-        <button type="button" class="btn btn-success btn-sm update-author-btn">Join Team</button>
-      </div>
+        <img src="{{obj.newImage}}" class="img-responsive">
+        <div class="caption">
+          <h3 class="title capitalize">{{obj.name}}</h3>
+          <p class="info-block">{{obj.type}}</p>
+          <p class="info-block"><i class="fa fa-location-arrow" aria-hidden="true"></i> Zip: {{obj.zip}}</p>
+          <p class="capitalize info-block"><i class="fa fa-info" aria-hidden="true"></i> Gender: {{obj.gender}}</p>
+          <p class="info-block"><i class="fa fa-venus-mars" aria-hidden="true"></i> Co-ed: {{obj.coed?'Yes':'No'}}</p>
+          <button type="button" class="btn btn-primary btn-sm update-author-btn">View Team</button>
+          <button type="button" class="btn btn-success btn-sm update-author-btn">Join Team</button>
+        </div>
       </div>
     </div>
   </div>
@@ -29,3 +30,4 @@
     </div>
   </div>
 </div>
+ </div>

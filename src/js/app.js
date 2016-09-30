@@ -19,7 +19,8 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getAllLocations',
   'Beersportme.controllers.Add_Event',
   'Beersportme.controllers.carousel',
-  'Beersportme.controllers.Add_Team'
+  'Beersportme.controllers.Add_Team',
+  'Beersportme.controllers.teamImagesArray'
 ]);
 
 app.config(function($routeProvider, $authProvider) {

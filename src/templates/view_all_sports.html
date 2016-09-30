@@ -11,7 +11,7 @@
 <div ng-repeat="obj in Get_Data.data.sports">
   <div class="row">
       <div class="thumbnail text-center">
-        <img src="https://hd.unsplash.com/photo-1431324155629-1a6deb1dec8d" alt="Sports Profile"/>
+        <img src="{{obj.newImage}}" alt="Sports Profile"/>
         <div class="caption">
           <p class="title">{{obj.type}}</p>
           <p class="info-block"><i class="fa fa-users" aria-hidden="true"></i>  Team Capacity: {{obj.team_capacity}}</p>
