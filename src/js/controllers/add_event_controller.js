@@ -16,7 +16,7 @@ angular.module('Beersportme.controllers.Add_Event', [])
     };
     $http({
       method: 'POST',
-      url: 'http://immense-mountain-80924.herokuapp.com/events',
+      url: 'http://localhost:3000/events',
       data: eventPayload
     }).
     success(function(data) {

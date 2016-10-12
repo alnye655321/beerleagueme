@@ -1,0 +1,31 @@
+<div class="modal" ui-if="modal_view_all_ladders" ui-shared-state="modal_view_all_ladders">
+  <div class="modal-backdrop in"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close"
+                ui-turn-off="modal_view_all_ladders">&times;</button>
+        <h4 class="modal-title">Ladder Info</h4>
+      </div>
+      <div class="modal-body">
+          <div ng-repeat="obj in Get_SuperData.data.ladders.ladders">
+            <div ng-if="obj.type == modalLadderName">
+            <h2>{{obj.type}}</h2>
+            <!-- <p><strong>Start Time:</strong> {{obj.start_time}}:00</p>
+            <p><strong>End Time:</strong> {{obj.end_time}}:00</p>
+            <p><strong>Location:</strong> {{obj.location_name}}</p>
+            <p><strong>Address:</strong> {{obj.loc_add_line_1}}</p>
+            <p><strong>Location Notes:</strong> {{obj.location_description}}</p>
+            <p><strong>City:</strong> {{obj.loc_add_city}}</p>
+            <p><strong>Sport Type:</strong> {{obj.type}}</p>
+            <p><strong>Equipment Required:</strong> {{obj.own_equipment_required}}</p> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button ui-turn-off="modal_view_all_ladders" class="btn btn-default">Close</button>
+        <!-- <button ui-turn-off="modal_view_all_ladders" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div ui-content-for="title">
+  <span class="title-text">Ladders</span>
+</div>
+
+<!-- <select class="form-control" >
+ <option value="January1">January 1</option>
+ <option value="January2">January 2</option>
+ <option value="January3">January 3</option>
+ <option value="January4">January 4</option>
+</select> -->
+
+<!-- scrollable content -->
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div ng-controller="getAllLadders as getAllLadders">
+  <!-- main content -->
+
+      <div class="panel-group"
+        ui-shared-state="myAccordion"
+        ui-default="2">
+
+        <div class="panel panel-default" ng-repeat="obj in Get_SuperData.data.ladders.ladders">
+
+          <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
+          <div class="panel-title pull-left">{{obj.type}}</div>
+          <!-- <div class="panel-title pull-right">{{obj.date|date:'mediumDate'}}</div> -->
+          <div class="clearfix"></div>
+          </div>
+
+          <div ui-if="myAccordion == {{obj.id}}">
+            <div class="panel-body">
+              <div>
+                <strong>Sport:</strong> {{obj.type}}<br>
+                <strong>Max Players:</strong> {{obj.max_positions}}<br>
+                <strong>table name:</strong> {{obj.table_name}}<br>
+              </div>
+              <div class="panel-footer clearfix">
+                <div class="pull-right">
+                  <a href="" ui-turn-on="modal_view_all_ladders" ng-click="registerClickModal(obj.type)" class="btn btn-default">Learn More</a>
+                    <a href="#" class="btn btn-default">Learn More</a>
+                    <a href="#" class="btn btn-primary" ng-click="registerSingleLadder(obj.id, obj.table_name, userID)">Register</a>
+                </div>
+              </div> <!-- close panel footer -->
+            </div> <!-- close panel body -->
+          </div><!-- close panel body if "state" -->
+
+      </div>
+
+<!-- modal -->
+<div ui-content-for="modals">
+  <div ng-include="'modal_view_all_ladders.html'"></div>
+</div>
+
+<!-- end scrollable content -->
+    </div> <!-- end panel group -->
+  </div>
+  </div>
+</div>

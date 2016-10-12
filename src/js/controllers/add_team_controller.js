@@ -13,7 +13,7 @@ angular.module('Beersportme.controllers.Add_Team', [])
     };
     $http({
       method: 'POST',
-      url: 'http://immense-mountain-80924.herokuapp.com/teams',
+      url: 'http://localhost:3000/teams',
       data: teamPayload
     }).
     success(function(data) {
