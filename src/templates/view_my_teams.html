@@ -9,22 +9,27 @@
 
   <!-- main content -->
   <div ng-repeat="obj in Get_Data.data.teams">
+
     <div class="row">
       <div class="thumbnail text-center">
         <!-- <img src="{{obj.image}}" class="img-responsive"> -->
         <img src="https://hd.unsplash.com/photo-1431324155629-1a6deb1dec8d">
       <div class="caption">
-        <h3 class="title capitalize">{{Get_Data.data.teams[0].name}}</h3>
-        <p class="info-block">{{Get_Data.data.teams[0].type}}</p>
-        <p class="info-block"><i class="fa fa-location-arrow" aria-hidden="true"></i> Zip: {{Get_Data.data.teams[0].zip}}</p>
+        <h3 class="title capitalize">{{obj.name}}</h3>
+        <p class="info-block">{{obj.type}}</p>
+        <p class="info-block"><i class="fa fa-location-arrow" aria-hidden="true"></i> Zip: {{obj.zip}}</p>
         <p class="info-block"><i class="fa fa-info" aria-hidden="true"></i> Co-ed: {{elem.Get_Data.data.teams.coed?'Yes':'No'}}</p>
-        <button type="button" class="btn btn-primary btn-sm update-author-btn">View Team</button>
+        <button type="button" ui-turn-on="modal_view_my_team" ng-click="registerClickModal(obj.name)" class="btn btn-primary btn-sm update-author-btn">View Team</button>
         <button type="button" class="btn btn-success btn-sm update-author-btn">Join Team</button>
       </div>
       </div>
     </div>
   </div>
 
+  <!-- modal -->
+  <div ui-content-for="modals">
+    <div ng-include="'modal_view_my_team.html'"></div>
+  </div>
 <!-- close scrollable content divs -->
     </div>
   </div>

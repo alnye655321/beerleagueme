@@ -10,4 +10,8 @@ angular.module('Beersportme.controllers.getMyTeams', [])
    //console.log("data.name"+$scope.data.name);
   });
 
+  $scope.registerClickModal = function(teamID) { //actually team name - !!! possibly change and add id #
+    $scope.modalTeamID = teamID;
+  };
+
 });
