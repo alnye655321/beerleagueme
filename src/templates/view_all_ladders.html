@@ -19,7 +19,7 @@
         ui-shared-state="myAccordion"
         ui-default="2">
 
-        <div class="panel panel-default" ng-repeat="obj in Get_SuperData.data.ladders.ladders">
+        <div class="panel panel-default" ng-repeat="obj in Get_Data.data.ladders.ladders">
 
           <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
           <div class="panel-title pull-left">{{obj.type}}</div>
@@ -32,12 +32,10 @@
               <div>
                 <strong>Sport:</strong> {{obj.type}}<br>
                 <strong>Max Players:</strong> {{obj.max_positions}}<br>
-                <strong>table name:</strong> {{obj.table_name}}<br>
               </div>
               <div class="panel-footer clearfix">
                 <div class="pull-right">
-                  <a href="" ui-turn-on="modal_view_all_ladders" ng-click="registerClickModal(obj.type)" class="btn btn-default">Learn More</a>
-                    <a href="#" class="btn btn-default">Learn More</a>
+                  <a href="" ui-turn-on="modal_view_all_ladders" ng-click="registerClickModal(obj.table_name)" class="btn btn-default">Learn More</a>
                     <a href="#" class="btn btn-primary" ng-click="registerSingleLadder(obj.id, obj.table_name, userID)">Register</a>
                 </div>
               </div> <!-- close panel footer -->

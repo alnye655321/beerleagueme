@@ -8,17 +8,20 @@
         <h4 class="modal-title">Ladder Info</h4>
       </div>
       <div class="modal-body">
-          <div ng-repeat="obj in Get_SuperData.data.ladders.ladders">
-            <div ng-if="obj.type == modalLadderName">
+          <div ng-repeat="obj in Get_Data.data.ladders.ladders">
+            <!-- <div ng-if="obj.type == modalLadderName"> -->
             <h2>{{obj.type}}</h2>
-            <!-- <p><strong>Start Time:</strong> {{obj.start_time}}:00</p>
-            <p><strong>End Time:</strong> {{obj.end_time}}:00</p>
-            <p><strong>Location:</strong> {{obj.location_name}}</p>
-            <p><strong>Address:</strong> {{obj.loc_add_line_1}}</p>
-            <p><strong>Location Notes:</strong> {{obj.location_description}}</p>
-            <p><strong>City:</strong> {{obj.loc_add_city}}</p>
-            <p><strong>Sport Type:</strong> {{obj.type}}</p>
-            <p><strong>Equipment Required:</strong> {{obj.own_equipment_required}}</p> -->
+            <table>
+              <tr>
+                <th>Rank</th>
+                <th colspan="2" align="center">Player</th>
+              </tr>
+              <tr ng-repeat="player in Ladder_Data.data.ladder">
+                <td>{{player.rank}}</td>
+                <td>{{player.first_name}}</td>
+                <td>{{player.last_name}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
