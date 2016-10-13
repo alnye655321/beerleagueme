@@ -1,16 +1,13 @@
-angular.module('Beersportme.controllers.getAllLadders', [])
-.controller("getAllLadders", function($scope, getFactory, postFactory) {
-  var myDataPromise2 = getFactory.getData('ladders')
+angular.module('Beersportme.controllers.getLadder', [])
+.controller("getLadder", function($scope, getFactory, postFactory) {
+  var myDataPromise2 = getFactory.getData('ladders/1')
   .then(function(result) {
-    $scope.Get_Data = result;
-  });
-
-  $scope.registerClickModal = function(tableName) {
-    $scope.modalLadderName = tableName;
+    $scope.ladderInfo = result.data.ladder;
+    var tableName = result.data.ladder.table_name;
 
     var ladderData = getFactory.getData('ladders/ladder/' + tableName)
     .then(function(result) {
-      $scope.Ladder_Data = result;
+      $scope.Ladder_Data = result.data.ladder;
       $scope.buttons = false;
       $scope.toggleButtons = function(clickIndex) {
         if (clickIndex === $scope.buttons) {
@@ -20,8 +17,8 @@ angular.module('Beersportme.controllers.getAllLadders', [])
         }
       };
     });
-  };
-
+  });
+  
   $scope.registerSingleLadder = function(ladderID, tableName, userID) {
     var payload = {
       player_id: userID,

@@ -2,13 +2,6 @@
   <span class="title-text">Ladders</span>
 </div>
 
-<!-- <select class="form-control" >
- <option value="January1">January 1</option>
- <option value="January2">January 2</option>
- <option value="January3">January 3</option>
- <option value="January4">January 4</option>
-</select> -->
-
 <!-- scrollable content -->
 <div class="scrollable">
   <div class="scrollable-content">
@@ -23,7 +16,6 @@
 
           <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
           <div class="panel-title pull-left">{{obj.type}}</div>
-          <!-- <div class="panel-title pull-right">{{obj.date|date:'mediumDate'}}</div> -->
           <div class="clearfix"></div>
           </div>
 
@@ -35,8 +27,8 @@
               </div>
               <div class="panel-footer clearfix">
                 <div class="pull-right">
-                  <a href="" ui-turn-on="modal_view_all_ladders" ng-click="registerClickModal(obj.table_name)" class="btn btn-default">Learn More</a>
-                    <a href="#" class="btn btn-primary" ng-click="registerSingleLadder(obj.id, obj.table_name, userID)">Register</a>
+                  <a href="#/view_ladder/{{obj.id}}" class="btn btn-default">View Ladder</a>
+                  <a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-click="registerSingleLadder(obj.id, obj.table_name, userID); registerClickModal(obj.table_name)">Register</a>
                 </div>
               </div> <!-- close panel footer -->
             </div> <!-- close panel body -->
@@ -46,7 +38,7 @@
 
 <!-- modal -->
 <div ui-content-for="modals">
-  <div ng-include="'modal_view_all_ladders.html'"></div>
+  <div ng-include="'modal_view_ladder.html'"></div>
 </div>
 
 <!-- end scrollable content -->
