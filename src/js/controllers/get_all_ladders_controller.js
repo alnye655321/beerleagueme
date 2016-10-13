@@ -5,7 +5,7 @@ angular.module('Beersportme.controllers.getAllLadders', [])
     $scope.Get_Data = result;
   });
 
-  $scope.registerClickModal = function(tableName) {
+  $scope.registerClickModal = function(tableName, opponentId) {
     $scope.modalLadderName = tableName;
 
     var ladderData = getFactory.getData('ladders/ladder/' + tableName)

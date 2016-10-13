@@ -7,10 +7,19 @@
         <h4 class="modal-title">Ladder Info</h4>
       </div>
       <div class="modal-body">
-        <div ng-repeat="obj in Get_Data.data.ladders.ladders">
-          <h2>{{obj.type}}</h2>
-
-        </div>
+          <h2>{{type}}</h2>
+          <p>Opponent:{{opponentID}}</p>
+          <p>You:{{userID}}</p>
+          <form ng-submit="updateLadder()">
+            <div class="radio">
+             <label><input ng-model="selfID" type="radio">{{userID}}</label>
+           </div>
+           <div class="radio">
+             <label><input ng-model="otherID" type="radio">{{opponentID}}</label>
+           </div>
+           {{otherID}}
+           <button type="submit">Submit</button>
+          </form>
       </div>
       <div class="modal-footer">
         <button ui-turn-off="modal_view_ladder" class="btn btn-default">Close</button>
