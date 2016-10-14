@@ -2,7 +2,7 @@ angular.module('Beersportme.services.postRoutesCommon', [])
 .factory('postFactory', function ($http, jsonFilter) {
 
     var postData = function(tableName, payload) {
-      var callURL = 'http://localhost:3000/' + tableName;
+      var callURL = 'http://immense-mountain-80924.herokuapp.com/' + tableName;
       var jsonData = {};
 
         // Angular $http() and then() both return promises themselves
