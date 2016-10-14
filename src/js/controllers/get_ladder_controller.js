@@ -1,8 +1,6 @@
 angular.module('Beersportme.controllers.getLadder', [])
-.controller("getLadder", function($http, $scope, getFactory, postFactory, putFactory) {
-  $scope.$watch('winner', function (prev, next) {
-    console.log(prev, next);
-  });
+.controller("getLadder", function($http, $scope, getFactory, postFactory) {
+
   var myDataPromise2 = getFactory.getData('ladders/1')
   .then(function(result) {
     $scope.ladderInfo = result.data.ladder;
@@ -21,6 +19,7 @@ angular.module('Beersportme.controllers.getLadder', [])
       };
     });
   });
+
   $scope.otherID = false;
 
   $scope.registerClickModal = function(tableName, sportType, player) {
@@ -39,7 +38,19 @@ angular.module('Beersportme.controllers.getLadder', [])
     };
     var myDataPromise = postFactory.postData('ladders/register', payload)
     .then(function(result) {
-
+      console.log('running');
+      var ladderData = getFactory.getData('ladders/ladder/' + tableName)
+      .then(function(result) {
+        $scope.Ladder_Data = result.data.ladder;
+        $scope.buttons = false;
+        $scope.toggleButtons = function(clickIndex) {
+          if (clickIndex === $scope.buttons) {
+            $scope.buttons = false;
+          } else {
+            $scope.buttons = clickIndex;
+          }
+        };
+      });
     });
   };
 
@@ -53,7 +64,7 @@ angular.module('Beersportme.controllers.getLadder', [])
       winner = $scope.userID;
       loser = $scope.opponentID;
     }
-console.log(winner);
+
     $http.put('http://localhost:3000/ladders/ladder/' + $scope.modalLadderName + '/' + winner + '/' + loser)
     .then()
     .catch();
