@@ -53,7 +53,7 @@ angular.module('Beersportme.controllers.getLadder', [])
       winner = $scope.userID;
       loser = $scope.opponentID;
     }
-
+console.log(winner);
     $http.put('http://localhost:3000/ladders/ladder/' + $scope.modalLadderName + '/' + winner + '/' + loser)
     .then()
     .catch();
