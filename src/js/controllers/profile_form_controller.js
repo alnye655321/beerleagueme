@@ -28,7 +28,7 @@ angular.module('Beersportme.controllers.Profile_Form', [])
 
     $http({
     method: 'POST',
-    url: 'http://immense-mountain-80924.herokuapp.com/players',
+    url: 'http://localhost:3000/players',
     data: profilePayload
     }).
     success(function(data, status, header, config) {

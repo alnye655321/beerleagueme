@@ -13,9 +13,11 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.getAllTeams',
   'Beersportme.controllers.getAllSports',
   'Beersportme.controllers.getAllEvents',
+  'Beersportme.controllers.getAllLadders',
   'Beersportme.controllers.getMyEvents',
   'Beersportme.controllers.getMyTeams',
   'Beersportme.controllers.getProfile',
+  'Beersportme.controllers.getLadder',
   'Beersportme.controllers.getAllLocations',
   'Beersportme.controllers.Add_Event',
   'Beersportme.controllers.carousel',
@@ -26,9 +28,9 @@ var app = angular.module('Beersportme', [
 app.config(function($routeProvider, $authProvider) {
     // *** satellizer settings *** //
   $authProvider.github({ //change URL to heroku address
-   url: 'http://immense-mountain-80924.herokuapp.com/auth/github',
+   url: 'http://localhost:3000/auth/github',
    clientId: '885c082728340e4b3d3f',
-   redirectUri: 'http://immense-mountain-80924.herokuapp.com/auth/github'
+   redirectUri: 'http://localhost:3000/auth/github'
   });
   $routeProvider.when('/', {templateUrl:'create_profile.html',  reloadOnSearch: false, restricted: false});
   $routeProvider.when('/home', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});
@@ -39,6 +41,8 @@ app.config(function($routeProvider, $authProvider) {
   // $routeProvider.when('/edit_my_profile', {templateUrl:'profile-form-edit.html',  reloadOnSearch: false});
   $routeProvider.when('/edit_my_profile', {templateUrl:'modal_edit_my_profile.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_events', {templateUrl:'view_all_events.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_all_ladders', {templateUrl:'view_all_ladders.html',  reloadOnSearch: false});
+  $routeProvider.when('/view_ladder/1', {templateUrl:'view_ladder.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_events', {templateUrl:'view_my_events.html',  reloadOnSearch: false});
   $routeProvider.when('/view_all_sports', {templateUrl:'view_all_sports.html',  reloadOnSearch: false});
   $routeProvider.when('/view_my_teams', {templateUrl:'view_my_teams.html',  reloadOnSearch: false});

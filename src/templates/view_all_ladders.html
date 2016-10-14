@@ -1,0 +1,48 @@
+<div ui-content-for="title">
+  <span class="title-text">Ladders</span>
+</div>
+
+<!-- scrollable content -->
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div ng-controller="getAllLadders as getAllLadders">
+  <!-- main content -->
+
+      <div class="panel-group"
+        ui-shared-state="myAccordion"
+        ui-default="2">
+
+        <div class="panel panel-default" ng-repeat="obj in Get_Data.data.ladders.ladders">
+
+          <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
+          <div class="panel-title pull-left">{{obj.type}}</div>
+          <div class="clearfix"></div>
+          </div>
+
+          <div ui-if="myAccordion == {{obj.id}}">
+            <div class="panel-body">
+              <div>
+                <strong>Sport:</strong> {{obj.type}}<br>
+                <strong>Max Players:</strong> {{obj.max_positions}}<br>
+              </div>
+              <div class="panel-footer clearfix">
+                <div class="pull-right">
+                  <a href="#/view_ladder/{{obj.id}}" class="btn btn-default">View Ladder</a>
+                  <a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-click="registerSingleLadder(obj.id, obj.table_name, userID); registerClickModal(obj.table_name, obj.id)">Register</a>
+                </div>
+              </div> <!-- close panel footer -->
+            </div> <!-- close panel body -->
+          </div><!-- close panel body if "state" -->
+
+      </div>
+
+<!-- modal -->
+<div ui-content-for="modals">
+  <div ng-include="'modal_view_ladder.html'"></div>
+</div>
+
+<!-- end scrollable content -->
+    </div> <!-- end panel group -->
+  </div>
+  </div>
+</div>
