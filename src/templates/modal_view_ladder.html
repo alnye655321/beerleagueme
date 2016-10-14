@@ -8,14 +8,13 @@
       </div>
       <div class="modal-body">
           <h2>{{type}}</h2>
-          <p>Opponent:{{opponentID}}</p>
-          <p>You:{{userID}}</p>
-          <form ng-submit="updateLadder()">
-            <div class="radio">
-             <label><input ng-model="selfID" type="radio">{{userID}}</label>
+          <p>Select the winner</p>
+          <form ng-submit="updateLadder(other)">
+            <div class="checkbox">
+             <label><input ng-model="selfID"type="checkbox" >You</label>
            </div>
-           <div class="radio">
-             <label><input ng-model="otherID" type="radio">{{opponentID}}</label>
+           <div class="checkbox">
+             <label><input ng-model="otherID" type="checkbox" >{{first}} {{last}}</label>
            </div>
            {{otherID}}
            <button type="submit">Submit</button>

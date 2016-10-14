@@ -1,5 +1,8 @@
 angular.module('Beersportme.controllers.getLadder', [])
 .controller("getLadder", function($http, $scope, getFactory, postFactory, putFactory) {
+  $scope.$watch('winner', function (prev, next) {
+    console.log(prev, next);
+  });
   var myDataPromise2 = getFactory.getData('ladders/1')
   .then(function(result) {
     $scope.ladderInfo = result.data.ladder;
@@ -18,11 +21,14 @@ angular.module('Beersportme.controllers.getLadder', [])
       };
     });
   });
+  $scope.otherID = false;
 
-  $scope.registerClickModal = function(tableName, sportType, opponentId) {
+  $scope.registerClickModal = function(tableName, sportType, player) {
     $scope.modalLadderName = tableName;
-    $scope.opponentID = opponentId;
+    $scope.opponentID = player.player_id;
     $scope.type = sportType;
+    $scope.first = player.first_name;
+    $scope.last = player.last_name;
   };
 
   $scope.registerSingleLadder = function(ladderID, tableName, userID) {
@@ -37,20 +43,30 @@ angular.module('Beersportme.controllers.getLadder', [])
     });
   };
 
-  $scope.updateLadder = function() {
-    var winner, loser;
+  $scope.updateLadder = function(otherID) {
 
-    if ($scope.otherID === true) {
-      winner = 7;
-      loser = 1;
+    if (otherID === true) {
+      winner = $scope.opponentID;
+      loser = $scope.userID;
     }
     else {
-      winner = 4;
-      loser = 2;
+      winner = $scope.userID;
+      loser = $scope.opponentID;
     }
 
     $http.put('http://localhost:3000/ladders/ladder/' + $scope.modalLadderName + '/' + winner + '/' + loser)
     .then()
     .catch();
   };
+
+// Need a way to submit and close the modal
+// or cancel and close
+
+  // $scope.cancel = function () {
+  //   $modalInstance.dismiss('cancel');
+  // };
+  //
+  // $scope.close = function() {
+  //   $uibModalInstance.close();
+  // };
 });
