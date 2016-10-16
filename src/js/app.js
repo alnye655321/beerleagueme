@@ -5,6 +5,7 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
   'Beersportme.controllers.Home',
+  'Beersportme.directives.eventNameGen',
   'Beersportme.services.getRoutesCommon',
   'Beersportme.services.postRoutesCommon',
   'Beersportme.services.putRoutesCommon',

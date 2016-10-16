@@ -22,7 +22,7 @@
         <div class="panel panel-default" ng-repeat="obj in Get_Data.data.events.events">
 
           <div class="panel-heading" ui-set="{'myAccordion': obj.id}"> <!-- !!!  ui set needs to be a # to track if state here, we are iterating through the object id json array !!! -->
-          <div class="panel-title pull-left">{{obj.name}}</div>
+          <div class="panel-title pull-left"><event-namer></event-namer></div>
           <div class="panel-title pull-right">{{obj.date|date:'mediumDate'}}</div>
           <div class="clearfix"></div>
           </div>
@@ -33,6 +33,7 @@
                 <strong>Start Time:</strong> {{obj.start_time}}<br>
                 <strong>End Time:</strong> {{obj.end_time}}<br>
                 <strong>Description:</strong> {{obj.description}}<br>
+                <strong>ID:</strong> {{obj.name}}<br>
               </div>
               <div class="panel-footer clearfix">
                 <div class="pull-right">
