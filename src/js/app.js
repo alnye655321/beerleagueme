@@ -6,6 +6,7 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.Main',
   'Beersportme.controllers.Home',
   'Beersportme.directives.eventNameGen',
+  'Beersportme.directives.drag_dismiss',
   'Beersportme.services.getRoutesCommon',
   'Beersportme.services.postRoutesCommon',
   'Beersportme.services.putRoutesCommon',
@@ -23,7 +24,8 @@ var app = angular.module('Beersportme', [
   'Beersportme.controllers.Add_Event',
   'Beersportme.controllers.carousel',
   'Beersportme.controllers.Add_Team',
-  'Beersportme.controllers.teamImagesArray'
+  'Beersportme.controllers.teamImagesArray',
+  'Beersportme.controllers.required_items'
 ]);
 
 app.config(function($routeProvider, $authProvider) {
@@ -54,6 +56,7 @@ app.config(function($routeProvider, $authProvider) {
   $routeProvider.when('/add_event', {templateUrl:'add_event.html',  reloadOnSearch: false});
   $routeProvider.when('/add_team', {templateUrl:'add_team.html',  reloadOnSearch: false});
   $routeProvider.when('/carousel', {templateUrl: 'carousel.html', reloadOnSearch: false});
+  $routeProvider.when('/view_required_items', {templateUrl: 'view_required_items.html', reloadOnSearch: false});
 });
 
 

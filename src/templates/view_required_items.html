@@ -1,0 +1,23 @@
+<div ui-content-for="title">
+  <span>Required Items For !!!Event Name!!!</span>
+  <!-- {{event.name}} get request to player/:eventID -->
+</div>
+
+<div class="scrollable" ng-controller="requiredItems">
+  <div class="scrollable-header alert alert-info">
+    Drag right to mark complete
+  </div>
+  <div class="scrollable-content">
+    <div class="container-fluid">
+      <div class="requiredItems-container">
+        <div ng-repeat="item in requiredItems"
+          drag-dismiss="dismissItem(item)"
+          class="section section-break">
+          <span class="body-text todo"><i class="fa fa-flag-o"></i>&nbsp &nbsp {{item.message}}</span>
+
+        </div>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
