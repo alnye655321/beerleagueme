@@ -9,20 +9,18 @@
       <div class="modal-body">
           <h2>{{type}}</h2>
           <p>Select the winner</p>
-          <form ng-submit="updateLadder(otherID)">
+          <form ng-submit="updateLadder(winnerID)">
             <div class="checkbox">
-             <label><input ng-model="selfID"type="checkbox" >You</label>
+             <label><input ng-model="winnerID"type="radio" value="{{userID}}" name="winner">You</label>
            </div>
            <div class="checkbox">
-             <label><input ng-model="otherID" type="checkbox" >{{first}} {{last}}</label>
+             <label><input ng-model="winnerID" type="radio" value="{{opponentID}}" name="winner">{{first}} {{last}}</label>
            </div>
-           {{otherID}}
            <button type="submit">Submit</button>
           </form>
       </div>
       <div class="modal-footer">
         <button ui-turn-off="modal_view_ladder" class="btn btn-default">Close</button>
-        <!-- <button ui-turn-off="modal_view_ladder" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
