@@ -1,11 +1,16 @@
 angular.module('Beersportme.controllers.getAllLadders', [])
-.controller("getAllLadders", function($scope, getFactory, postFactory) {
+.controller("getAllLadders", function($scope, $rootScope, getFactory, postFactory) {
+
   var myDataPromise2 = getFactory.getData('ladders')
   .then(function(result) {
-    $scope.Get_Data = result;
+    $scope.Get_Data = result.data.ladders.ladders;
   });
 
-  $scope.registerClickModal = function(tableName, opponentId) {
+  $scope.updateLadderScope = function(ladderID) {
+    $rootScope.ladderID = ladderID;
+  };
+
+  $scope.registerClickModal = function(tableName, opponentId, ladderID) {
     $scope.modalLadderName = tableName;
 
     var ladderData = getFactory.getData('ladders/ladder/' + tableName)

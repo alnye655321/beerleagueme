@@ -28,7 +28,8 @@
       <td>{{player.first_name}}</td>
       <td>{{player.last_name}}</td>
       <td ng-show="buttons===$index"><button class="btn btn-default" disabled>View Bio</button></td>
-      <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK<3 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Challenge</a></td>
+      <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK<3 && challengeOK>0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Defend</a></td>
+      <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK>-3 && challengeOK<0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Challenge</a></td>
     </tr>
   </table>
   <div ui-content-for="modals">

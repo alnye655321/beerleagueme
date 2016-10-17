@@ -1,7 +1,7 @@
 angular.module('Beersportme.controllers.getLadder', [])
-.controller("getLadder", function($http, $scope, getFactory, postFactory) {
+.controller("getLadder", function($http, $scope, $rootScope, getFactory, postFactory) {
 
-  var myDataPromise2 = getFactory.getData('ladders/1')
+  var myDataPromise2 = getFactory.getData('ladders/' + $rootScope.ladderID)
   .then(function(result) {
     $scope.ladderInfo = result.data.ladder;
     var tableName = result.data.ladder.table_name;
@@ -19,7 +19,7 @@ angular.module('Beersportme.controllers.getLadder', [])
       $scope.buttons = false;
       $scope.toggleButtons = function(clickIndex) {
         $scope.playerRank = result.data.ladder[clickIndex].rank;
-        $scope.challengeOK = Math.abs($scope.playerRank-$scope.present[0].rank);
+        $scope.challengeOK = $scope.playerRank-$scope.present[0].rank;
 
         if (clickIndex === $scope.buttons) {
           $scope.buttons = false;
@@ -62,6 +62,7 @@ angular.module('Beersportme.controllers.getLadder', [])
         $scope.toggleButtons = function(clickIndex) {
           $scope.playerRank = result.data.ladder[clickIndex].rank;
           $scope.challengeOK = Math.abs($scope.playerRank-$scope.present[0].rank);
+
           if (clickIndex === $scope.buttons) {
             $scope.buttons = false;
           } else {
