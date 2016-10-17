@@ -5,6 +5,7 @@ var app = angular.module('Beersportme', [
   'mobile-angular-ui.gestures',
   'Beersportme.controllers.Main',
   'Beersportme.controllers.Home',
+  'Beersportme.filters.availability_calc',
   'Beersportme.directives.eventNameGen',
   'Beersportme.directives.drag_dismiss',
   'Beersportme.services.getRoutesCommon',
