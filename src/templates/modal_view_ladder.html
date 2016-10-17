@@ -10,10 +10,10 @@
           <h2>{{type}}</h2>
           <p>Select the winner</p>
           <form ng-submit="updateLadder(winnerID)">
-            <div class="checkbox">
+            <div class="radio">
              <label><input ng-model="winnerID"type="radio" value="{{userID}}" name="winner">You</label>
            </div>
-           <div class="checkbox">
+           <div class="radio">
              <label><input ng-model="winnerID" type="radio" value="{{opponentID}}" name="winner">{{first}} {{last}}</label>
            </div>
            <button type="submit">Submit</button>

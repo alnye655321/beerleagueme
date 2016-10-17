@@ -12,12 +12,15 @@ angular.module('Beersportme.controllers.getLadder', [])
       $scope.Ladder_Data = result.data.ladder;
       $scope.present =
         result.data.ladder.filter(function(player) {
-          if (player.player_id === 1) {
+          if (player.player_id === $scope.userID) {
             return player;
           }
         });
       $scope.buttons = false;
       $scope.toggleButtons = function(clickIndex) {
+        $scope.playerRank = result.data.ladder[clickIndex].rank;
+        $scope.challengeOK = Math.abs($scope.playerRank-$scope.present[0].rank);
+
         if (clickIndex === $scope.buttons) {
           $scope.buttons = false;
         } else {
@@ -49,8 +52,16 @@ angular.module('Beersportme.controllers.getLadder', [])
       .then(function(result) {
         $scope.registered = result.data.ladder.length;
         $scope.Ladder_Data = result.data.ladder;
+        $scope.present =
+          result.data.ladder.filter(function(player) {
+            if (player.player_id === $scope.userID) {
+              return player;
+            }
+          });
         $scope.buttons = false;
         $scope.toggleButtons = function(clickIndex) {
+          $scope.playerRank = result.data.ladder[clickIndex].rank;
+          $scope.challengeOK = Math.abs($scope.playerRank-$scope.present[0].rank);
           if (clickIndex === $scope.buttons) {
             $scope.buttons = false;
           } else {
@@ -63,10 +74,9 @@ angular.module('Beersportme.controllers.getLadder', [])
 
   $scope.updateLadder = function(winnerID) {
 
-    if (winnerID === $scope.opponentID) {
+    if (winnerID == $scope.opponentID) {
       winner = $scope.opponentID;
       loser = $scope.userID;
-
     }
     else {
       winner = $scope.userID;
