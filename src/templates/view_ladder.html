@@ -12,7 +12,8 @@
   <div class="col-xs-12 col-md-8 col-lg-10">
     <h4 class="name-header align-center text-center">{{ladderInfo.type}}</h4>
     <p class="numberRegistered align-center text-center">Registered: {{registered}} Max Players: {{ladderInfo.max_positions}}</p>
-    <a href="" class="btn btn-primary" ng-if="registered<ladderInfo.max_positions"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Register</a>
+    <a href="" class="btn btn-primary" ng-if="registered<ladderInfo.max_positions && !present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Register</a>
+    <a href="" class="btn btn-primary disabled" ng-if="present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Already Registered</a>
     <a href="" class="btn btn-primary disabled"
     ng-if="registered>=ladderInfo.max_positions" ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Ladder Full</a>
   </div>

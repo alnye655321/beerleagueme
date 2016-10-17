@@ -10,6 +10,12 @@ angular.module('Beersportme.controllers.getLadder', [])
     .then(function(result) {
       $scope.registered = result.data.ladder.length;
       $scope.Ladder_Data = result.data.ladder;
+      $scope.present =
+        result.data.ladder.filter(function(player) {
+          if (player.player_id === 1) {
+            return player;
+          }
+        });
       $scope.buttons = false;
       $scope.toggleButtons = function(clickIndex) {
         if (clickIndex === $scope.buttons) {
