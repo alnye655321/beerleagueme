@@ -9,14 +9,14 @@
       <div class="modal-body">
           <h2>{{type}}</h2>
           <p>Select the winner</p>
-          <form ng-submit="updateLadder(winnerID)">
+          <form>
             <div class="radio">
              <label><input ng-model="winnerID"type="radio" value="{{userID}}" name="winner">You</label>
            </div>
            <div class="radio">
              <label><input ng-model="winnerID" type="radio" value="{{opponentID}}" name="winner">{{first}} {{last}}</label>
            </div>
-           <button type="submit">Submit</button>
+           <button ng-click="updateLadder(winnerID)"type="submit">Submit</button>
           </form>
       </div>
       <div class="modal-footer">

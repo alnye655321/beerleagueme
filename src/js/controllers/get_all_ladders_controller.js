@@ -1,7 +1,7 @@
 angular.module('Beersportme.controllers.getAllLadders', [])
 .controller("getAllLadders", function($scope, $rootScope, getFactory, postFactory) {
 
-  var myDataPromise2 = getFactory.getData('ladders')
+  var allLadderInfo = getFactory.getData('ladders')
   .then(function(result) {
     $scope.Get_Data = result.data.ladders.ladders;
   });
