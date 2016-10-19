@@ -1,37 +1,50 @@
-angular.module('Beersportme.controllers.getLadder', [])
-.controller("getLadder", function($http, $scope, getFactory, postFactory, putFactory) {
-  $scope.$watch('winner', function (prev, next) {
-    console.log(prev, next);
-  });
-  var myDataPromise2 = getFactory.getData('ladders/1')
+var app = angular.module('Beersportme.controllers.getLadder', []);
+
+app.controller("getLadder", ladderController);
+
+function ladderController($http, $scope, $rootScope, getFactory, postFactory) {
+  var vm = $scope;
+
+  var ladderInfo = getFactory.getData('ladders/' + $rootScope.ladderID)
   .then(function(result) {
-    $scope.ladderInfo = result.data.ladder;
+    vm.ladderInfo = result.data.ladder;
     var tableName = result.data.ladder.table_name;
 
     var ladderData = getFactory.getData('ladders/ladder/' + tableName)
     .then(function(result) {
-      $scope.Ladder_Data = result.data.ladder;
-      $scope.buttons = false;
-      $scope.toggleButtons = function(clickIndex) {
-        if (clickIndex === $scope.buttons) {
-          $scope.buttons = false;
+      vm.registered = result.data.ladder.length;
+      vm.Ladder_Data = result.data.ladder;
+      vm.present =
+        result.data.ladder.filter(function(player) {
+          if (player.player_id === vm.userID) {
+            return player;
+          }
+        });
+      vm.buttons = false;
+      vm.toggleButtons = function(clickIndex) {
+        vm.playerRank = result.data.ladder[clickIndex].rank;
+        vm.challengeOK = vm.playerRank-vm.present[0].rank;
+
+        if (clickIndex === vm.buttons) {
+          vm.buttons = false;
         } else {
-          $scope.buttons = clickIndex;
+          vm.buttons = clickIndex;
         }
       };
     });
   });
-  $scope.otherID = false;
 
-  $scope.registerClickModal = function(tableName, sportType, player) {
-    $scope.modalLadderName = tableName;
-    $scope.opponentID = player.player_id;
-    $scope.type = sportType;
-    $scope.first = player.first_name;
-    $scope.last = player.last_name;
+  vm.winnerID = false;
+
+  vm.registerClickModal = function(tableName, sportType, player) {
+    vm.modalLadderName = tableName;
+    vm.opponentID = player.player_id;
+    vm.type = sportType;
+    vm.first = player.first_name;
+    vm.last = player.last_name;
   };
 
-  $scope.registerSingleLadder = function(ladderID, tableName, userID) {
+  vm.registerSingleLadder = function(ladderID, tableName, userID) {
     var payload = {
       player_id: userID,
       ladder_id: ladderID,
@@ -39,22 +52,43 @@ angular.module('Beersportme.controllers.getLadder', [])
     };
     var myDataPromise = postFactory.postData('ladders/register', payload)
     .then(function(result) {
+      var ladderData = getFactory.getData('ladders/ladder/' + tableName)
+      .then(function(result) {
+        vm.registered = result.data.ladder.length;
+        vm.Ladder_Data = result.data.ladder;
+        vm.present =
+          result.data.ladder.filter(function(player) {
+            if (player.player_id === vm.userID) {
+              return player;
+            }
+          });
+        vm.buttons = false;
+        vm.toggleButtons = function(clickIndex) {
+          vm.playerRank = result.data.ladder[clickIndex].rank;
+          vm.challengeOK = Math.abs(vm.playerRank-vm.present[0].rank);
 
+          if (clickIndex === vm.buttons) {
+            vm.buttons = false;
+          } else {
+            vm.buttons = clickIndex;
+          }
+        };
+      });
     });
   };
 
-  $scope.updateLadder = function(otherID) {
+  vm.updateLadder = function(winnerID) {
 
-    if (otherID === true) {
-      winner = $scope.opponentID;
-      loser = $scope.userID;
+    if (winnerID == vm.opponentID) {
+      winner = vm.opponentID;
+      loser = vm.userID;
     }
     else {
-      winner = $scope.userID;
-      loser = $scope.opponentID;
+      winner = vm.userID;
+      loser = vm.opponentID;
     }
-console.log(winner);
-    $http.put('http://localhost:3000/ladders/ladder/' + $scope.modalLadderName + '/' + winner + '/' + loser)
+
+    $http.put('http://localhost:3000/ladders/ladder/' + vm.modalLadderName + '/' + winner + '/' + loser)
     .then()
     .catch();
   };
@@ -62,11 +96,11 @@ console.log(winner);
 // Need a way to submit and close the modal
 // or cancel and close
 
-  // $scope.cancel = function () {
+  // vm.cancel = function () {
   //   $modalInstance.dismiss('cancel');
   // };
   //
-  // $scope.close = function() {
+  // vm.close = function() {
   //   $uibModalInstance.close();
   // };
-});
+}

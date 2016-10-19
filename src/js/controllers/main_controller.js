@@ -6,6 +6,7 @@ angular.module('Beersportme.controllers.Main', [])
   };
   //$scope.userID = 1;
   $rootScope.userID = 1;
+  $rootScope.ladderID = 1;
 
   $scope.chatUsers = [
     {name: 'Carlos  Flowers', online: true},
