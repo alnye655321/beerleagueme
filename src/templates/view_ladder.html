@@ -1,40 +1,48 @@
 <div ui-content-for="title">
   <span class="title-text">Ladder</span>
 </div>
-<!-- main content -->
 
-<div ng-controller="getLadder as getLadder">
-  <div class="col-xs-12 col-md-4 col-lg-2 align-center">
-    <div class="col-xs-12 profile-pic center-block">
-      <img src="{{ladderInfo.image}}" alt="Profile Picture"/>
+<!-- scroll divs -->
+<div class="scrollable">
+ <div class="scrollable-content section">
+<!-- main content -->
+    <div ng-controller="getLadder as getLadder">
+      <div class="sport-pic col-xs-12 col-md-4 col-lg-2 text-center">
+        <div>
+          <img src="{{ladderInfo.image}}" alt="Profile Picture"/>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-8 col-lg-4">
+        <div class=" text-center">
+          <h4 class="name-header">{{ladderInfo.type}}</h4>
+          <p class="numberRegistered">Registered: {{registered}} Max Players: {{ladderInfo.max_positions}}</p>
+          <a href="" class="btn btn-primary" ng-if="registered<ladderInfo.max_positions && !present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Register</a>
+          <a href="" class="btn btn-primary disabled" ng-if="present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Already Registered</a>
+          <a href="" class="btn btn-primary disabled"
+          ng-if="registered>=ladderInfo.max_positions" ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Ladder Full</a>
+
+        </div>
+        <div class="table">
+          <table class="ladder-table">
+            <tr>
+              <th>Rank</th>
+              <th colspan="2">Player</th>
+            </tr>
+            <tr ng-repeat="player in Ladder_Data" ng-click="toggleButtons($index)">
+              <td>{{player.rank}}</td>
+              <td>{{player.first_name}}</td>
+              <td>{{player.last_name}}</td>
+              <td ng-show="buttons===$index"><button class="btn btn-default" disabled>View Bio</button></td>
+              <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK<3 && challengeOK>0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Defend</a></td>
+              <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK>-3 && challengeOK<0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Challenge</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div ui-content-for="modals">
+        <div ng-include="'modal_view_ladder.html'"></div>
+      </div>
     </div>
   </div>
-  <div class="col-xs-12 col-md-8 col-lg-10">
-    <h4 class="name-header align-center text-center">{{ladderInfo.type}}</h4>
-    <p class="numberRegistered align-center text-center">Registered: {{registered}} Max Players: {{ladderInfo.max_positions}}</p>
-    <a href="" class="btn btn-primary" ng-if="registered<ladderInfo.max_positions && !present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Register</a>
-    <a href="" class="btn btn-primary disabled" ng-if="present.length"  ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Already Registered</a>
-    <a href="" class="btn btn-primary disabled"
-    ng-if="registered>=ladderInfo.max_positions" ng-click="registerSingleLadder(ladderInfo.id, ladderInfo.table_name, userID)">Ladder Full</a>
-
-  </div>
-  <table class="ladder-table">
-    <tr>
-      <th>Rank</th>
-      <th colspan="2">Player</th>
-    </tr>
-    <tr ng-repeat="player in Ladder_Data" ng-click="toggleButtons($index)">
-      <td>{{player.rank}}</td>
-      <td>{{player.first_name}}</td>
-      <td>{{player.last_name}}</td>
-      <td ng-show="buttons===$index"><button class="btn btn-default" disabled>View Bio</button></td>
-      <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK<3 && challengeOK>0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Defend</a></td>
-      <td ng-show="buttons===$index"><a href="" ui-turn-on="modal_view_ladder" class="btn btn-primary" ng-if="challengeOK>-3 && challengeOK<0 && playerRank!==present[0].rank" ng-click="registerClickModal(ladderInfo.table_name, ladderInfo.type, player)">Challenge</a></td>
-    </tr>
-  </table>
-  <div ui-content-for="modals">
-    <div ng-include="'modal_view_ladder.html'"></div>
-  </div>
 </div>
-
 <!-- modal -->
