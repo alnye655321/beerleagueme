@@ -32,9 +32,9 @@ var app = angular.module('Beersportme', [
 app.config(function($routeProvider, $authProvider) {
     // *** satellizer settings *** //
   $authProvider.github({ //change URL to heroku address
-   url: 'http://immense-mountain-80924.herokuapp.com/auth/github',
+   url: 'http://localhost:3000/auth/github',
    clientId: '885c082728340e4b3d3f',
-   redirectUri: 'http://immense-mountain-80924.herokuapp.com/auth/github'
+   redirectUri: 'http://localhost:3000/auth/github'
   });
   $routeProvider.when('/', {templateUrl:'create_profile.html',  reloadOnSearch: false, restricted: false});
   $routeProvider.when('/home', {templateUrl:'home.html',  reloadOnSearch: false, restricted: false});

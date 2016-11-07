@@ -88,7 +88,7 @@ function ladderController($http, $scope, $rootScope, getFactory, postFactory) {
       loser = vm.opponentID;
     }
 
-    $http.put('http://immense-mountain-80924.herokuapp.com/ladders/ladder/' + vm.modalLadderName + '/' + winner + '/' + loser)
+    $http.put('http://localhost:3000/ladders/ladder/' + vm.modalLadderName + '/' + winner + '/' + loser)
     .then()
     .catch();
   };
